@@ -156,7 +156,33 @@ class Procedencia(CreateView):
         context['botaoB'] = 'Limpar'
         context['botaoA'] = 'Cancelar'
         return context
-    success_url = '/usuario/sucesso/'
+    success_url = '/usuario/imagem/'
 
+class Imagem(CreateView):
+    model = Imagens
+    fields = '__all__'
+    template_name = 'usuario/form.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = 'Cadastro de Usuário'
+        context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
+        context['botaoC'] = 'Avançar'
+        context['botaoB'] = 'Limpar'
+        context['botaoA'] = 'Cancelar'
+        return context
+    success_url = '/usuario/usr/'
+class Usr(CreateView):
+    model = Usr
+    fields = '__all__'
+    template_name = 'usuario/form.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = 'Cadastro de Usuário'
+        context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
+        context['botaoC'] = 'Avançar'
+        context['botaoB'] = 'Limpar'
+        context['botaoA'] = 'Cancelar'
+        return context
+    success_url = '/usuario/sucesso/'
 class Sucesso(TemplateView):
     template_name = 'usuario/sucesso.html'

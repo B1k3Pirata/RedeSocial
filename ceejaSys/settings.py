@@ -139,11 +139,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, "imagens")
 MEDIA_URL = "/imagens/"
 
-'''#configurações de usuario e login (autenticação)
+#configurações de usuario e login (autenticação)
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'login'
-'''
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

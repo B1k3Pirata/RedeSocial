@@ -386,7 +386,24 @@ class Proc(models.Model):
     class Meta:
         verbose_name = 'Procedência'
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.nesc},{self.pore1a},{self.pore2a},{self.pore3a}, {self.pore4a},{self.comec},{self.anx},{self.idtnv},{self.fase},{self.turno},{self.turno},{self.modal},{self.seq},{self.rat}'
 
 class Imagens(models.Model):
+    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
+    avatar = models.FileField(upload_to='avatar', blank=True)
+    dochist = models.FileField(upload_to='historico', blank=True)
+    docRG = models.FileField(upload_to='rg', blank=True)
+    docRG2 = models.FileField(upload_to='rg', blank=True)
+    docCPF = models.FileField(upload_to='cpf',blank=True)
+    docRes = models.FileField(upload_to='comprovaResid', blank=True)
+    docCert = models.FileField(upload_to='certificaFund', blank=True)
+
+    class Meta:
+        verbose_name = 'Imagens'
+
+    def __str__(self) -> str:
+        return f'{avatar}{dochist}{docRG}{docRG2}{docCPF}{docRes}{docCertp}'
+
+class Usr(models.Model):
+    username = 
