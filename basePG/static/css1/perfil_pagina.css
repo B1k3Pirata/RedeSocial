@@ -1,0 +1,381 @@
+@charset "UTF-8";
+
+@media (min-width: 100px) and (max-width: 400px){
+  .secao{
+    background-color: #eae5e5;
+    width: 100%;
+    height: auto;
+  }
+  .secao > .dados{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    'fp'
+    'pp'
+    'ct'
+    'ii'
+  }
+  .secao > .dados > .foto-p{
+    grid-area: fp;
+    position: relative;
+    background-color: #d3d3d3;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    margin-left: 120px;
+    margin-top: 30px;
+  }
+  .secao > .dados > .foto-p > #avatar{
+    height: 90px;
+    width: 90px;
+    left: -17px;
+    border-radius: 100%;
+    position: relative;
+  }
+  .secao > .dados > .pessoal{
+    grid-area: pp;
+    background-color: green;
+    position: relative;
+    width: 100%;
+    height: auto;
+    /*z-index: 1;*/
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    grid-template-areas:
+    'n s'
+    'm d'
+  }
+  .secao > .dados > .pessoal > .nome{
+    grid-area: n;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .snome{
+    grid-area: s;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .matr{
+    grid-area: m;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .det{
+    grid-area: d;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  /* card */
+  .secao > .dados > .cartao{
+    grid-area: ct;
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas:
+    'ag ag2 pv'
+    'nt mt id'
+  }
+  .secao > .dados > .cartao > .iagenda, .iagendador, .iprova, .inotas, .imaterial, .iid > label{
+    font-family: 'Ubuntu';
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .iagenda {grid-area: ag;}
+  .iagendador {grid-area: ag2;}
+  .iprova {grid-area: pv;}
+  .inotas {grid-area: nt;}
+  .imaterial {grid-area: mt;}
+  .iid {grid-area: id;}
+}
+}
+
+@media (min-width: 400px) and (max-width: 600px){
+  .secao{
+    background-color: #eae5e5;
+    width: 100%;
+    height: auto;
+  }
+  .secao > .dados{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    'fp'
+    'pp'
+    'ct'
+    'ii'
+  }
+  .secao > .dados > .foto-p{
+    grid-area: fp;
+    position: relative;
+    background-color: #d3d3d3;
+    width: 190px;
+    height: 190px;
+    border-radius: 100%;
+    margin-left: 120px;
+    margin-top: 30px;
+  }
+  .secao > .dados > .foto-p > #avatar{
+    height: 90px;
+    width: 90px;
+    left: -17px;
+    border-radius: 100%;
+    position: relative;
+  }
+  .secao > .dados > .pessoal{
+    grid-area: pp;
+    background-color: green;
+    position: relative;
+    width: 100%;
+    height: auto;
+    /*z-index: 1;*/
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    grid-template-areas:
+    'n s'
+    'm d'
+  }
+  .secao > .dados > .pessoal > .nome{
+    grid-area: n;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .snome{
+    grid-area: s;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .matr{
+    grid-area: m;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .det{
+    grid-area: d;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  /* card */
+  .secao > .dados > .cartao{
+    grid-area: ct;
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas:
+    'ag ag2 pv'
+    'nt mt id'
+  }
+  .secao > .dados > .cartao > .iagenda, .iagendador, .iprova, .inotas, .imaterial, .iid > label{
+    font-family: 'Ubuntu';
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .iagenda {grid-area: ag;}
+  .iagendador {grid-area: ag2;}
+  .iprova {grid-area: pv;}
+  .inotas {grid-area: nt;}
+  .imaterial {grid-area: mt;}
+  .iid {grid-area: id;}
+}
+}
+
+@media (min-width: 600px) and (max-width: 1200px){
+  .secao{
+    background-color: #eae5e5;
+    width: 100%;
+    height: auto;
+  }
+  .secao > .dados{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    'fp'
+    'pp'
+    'ct'
+    'ii'
+  }
+  .secao > .dados > .foto-p{
+    grid-area: fp;
+    position: relative;
+    background-color: #d3d3d3;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    margin-left: 120px;
+    margin-top: 30px;
+  }
+  .secao > .dados > .foto-p > #avatar{
+    height: 90px;
+    width: 90px;
+    left: -17px;
+    border-radius: 100%;
+    position: relative;
+  }
+  .secao > .dados > .pessoal{
+    grid-area: pp;
+    background-color: green;
+    position: relative;
+    width: 100%;
+    height: auto;
+    /*z-index: 1;*/
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    grid-template-areas:
+    'n s'
+    'm d'
+  }
+  .secao > .dados > .pessoal > .nome{
+    grid-area: n;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .snome{
+    grid-area: s;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .matr{
+    grid-area: m;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .det{
+    grid-area: d;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  /* card */
+  .secao > .dados > .cartao{
+    grid-area: ct;
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas:
+    'ag ag2 pv'
+    'nt mt id'
+  }
+  .secao > .dados > .cartao > .iagenda, .iagendador, .iprova, .inotas, .imaterial, .iid > label{
+    font-family: 'Ubuntu';
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .iagenda {grid-area: ag;}
+  .iagendador {grid-area: ag2;}
+  .iprova {grid-area: pv;}
+  .inotas {grid-area: nt;}
+  .imaterial {grid-area: mt;}
+  .iid {grid-area: id;}
+}
+}
+
+@media (min-width: 1200px) and (max-width: 2000px){
+  .secao{
+    background-color: #eae5e5;
+    width: 100%;
+    height: auto;
+  }
+  .secao > .dados{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    'fp'
+    'pp'
+    'ct'
+    'ii'
+  }
+  .secao > .dados > .foto-p{
+    grid-area: fp;
+    position: relative;
+    background-color: #d3d3d3;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    margin-left: 120px;
+    margin-top: 30px;
+  }
+  .secao > .dados > .foto-p > #avatar{
+    height: 90px;
+    width: 90px;
+    left: -17px;
+    border-radius: 100%;
+    position: relative;
+  }
+  .secao > .dados > .pessoal{
+    grid-area: pp;
+    background-color: green;
+    position: relative;
+    width: 100%;
+    height: auto;
+    /*z-index: 1;*/
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    grid-template-areas:
+    'n s'
+    'm d'
+  }
+  .secao > .dados > .pessoal > .nome{
+    grid-area: n;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .snome{
+    grid-area: s;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .matr{
+    grid-area: m;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .det{
+    grid-area: d;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  /* card */
+  .secao > .dados > .cartao{
+    grid-area: ct;
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas:
+    'ag ag2 pv'
+    'nt mt id'
+  }
+  .secao > .dados > .cartao > .iagenda, .iagendador, .iprova, .inotas, .imaterial, .iid > label{
+    font-family: 'Ubuntu';
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .iagenda {grid-area: ag;}
+  .iagendador {grid-area: ag2;}
+  .iprova {grid-area: pv;}
+  .inotas {grid-area: nt;}
+  .imaterial {grid-area: mt;}
+  .iid {grid-area: id;}
+}
+}

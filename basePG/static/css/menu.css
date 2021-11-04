@@ -1,0 +1,35 @@
+/* menu */
+.grid-container > .barra-menu > .nav-ban{
+  grid-area: bm;
+  position: absolute;
+  background-color: silver;
+  align-content: center;
+  justify-content: center;
+  top: 185px;
+  left: 0px;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+}
+.grid-container > .barra-menu > .nav-ban > nav ul {
+  padding:0px;
+  margin:0px;
+  background-color:#EDEDED;
+  list-style:none;
+}
+.grid-container > .barra-menu > .nav-ban > nav ul li { display: inline; }
+.grid-container > .barra-menu > .nav-ban > nav ul li a {
+  padding: 2px 5px;
+  display: inline-block;}
+  
+.grid-container > .barra-menu > .nav-ban > nav ul li a:hover {
+  background-color:#D6D6D6;
+  color: #6D6D6D;
+  border-bottom:3px solid #EA0000;
+
+  /* visual do link */
+  background-color:#EDEDED;
+  color: #333;
+  text-decoration: none;
+  border-bottom:3px solid #EDEDED;
+}

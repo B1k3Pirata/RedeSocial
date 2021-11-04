@@ -1,0 +1,78 @@
+@media (min-width: 100px) and (max-width: 360px){
+  .cad{
+    background-color: yellow;
+    margin: 5px;
+    padding: 5px;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    't'
+    'c'
+    'b'
+  }
+  .cad > .titulo{
+    grid-area: t;
+    background-color: LightBlue;
+    text-align: center;
+  }
+  .cad > .titulo > h3{
+    font-family: 'Ubuntu';
+    font-weight: bold;
+  }
+  .cad > .corpo{
+    grid-area: c;
+    background-color: #fbfcfc;
+  }
+  .cad > .corpo > p{
+    margin: 5px;
+    padding: 5px;
+    font-family: 'ubuntu';
+    font-size: 12px;
+    text-indent: 1.5px;
+    text-align: justify;
+  }
+  .cad > .controle{
+    grid-area: b;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  .sucesso{
+    background-color: yellow;
+    margin: 5px;
+    padding: 5px;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    't'
+    'c'
+    'b'
+  }
+  .cad > .titulo{
+    grid-area: t;
+    background-color: LightBlue;
+    text-align: center;
+  }
+  .cad > .titulo > h3{
+    font-family: 'Ubuntu';
+    font-weight: bold;
+  }
+  .cad > .corpo{
+    grid-area: c;
+    background-color: #fbfcfc;
+  }
+  .cad > .corpo > p{
+    margin: 5px;
+    padding: 5px;
+    font-family: 'ubuntu';
+    font-size: 12px;
+    text-indent: 1.5px;
+    text-align: justify;
+  }
+  .cad > .controle{
+    grid-area: b;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}

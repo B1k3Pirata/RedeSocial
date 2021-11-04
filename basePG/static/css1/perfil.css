@@ -1,0 +1,118 @@
+@media (min-width: 100px) and (max-width:360px){
+  .secao{
+    background-color: blue;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-areas:
+    'fp'
+    'dd'
+    'ct'
+    'ii'
+    }
+    /*area de dados*/
+  .secao > .dados{
+      grid-area: dd;
+      background-color: grey;
+      width: 100%;
+      height: auto;
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+      grid-template-areas:
+      'fp'
+      'p'
+      'ag'
+      'av'
+    }
+
+  /*foto usuario*/
+  .secao > .dados > .foto-p{
+    grid-area: fp;
+    background-color: #D3D3D3; /*lightgrey*/
+    height: 90px;
+    width: 90px;
+    border-radius: 100%;
+    margin-left: 100px;
+    margin-top: -20px;
+    position: relative;
+    /*z-index: 2;*/
+  }
+  .secao > .dados > .foto-p > #avatar{
+    height: 90px;
+    width: 90px;
+    left: -17px;
+    border-radius: 100%;
+    position: relative;
+  }
+
+  .secao > .dados > .pessoal{
+    grid-area: p;
+    background-color: green;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /*z-index: 1;*/
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    grid-template-areas:
+    'n s'
+    'm d'
+  }
+  .secao > .dados > .pessoal > .nome{
+    grid-area: n;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .snome{
+    grid-area: s;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .matr{
+    grid-area: m;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+  .secao > .dados > .pessoal > .det{
+    grid-area: d;
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: white;
+  }
+
+  /* card */
+  .cartao{
+    grid-area: ct;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas:
+    'ag ag2 pv'
+    'nt mt id'
+  }
+  .iagenda {grid-area: ag;}
+  .iagendador {grid-area: ag2;}
+  .iprova {grid-area: pv;}
+  .inotas {grid-area: nt;}
+  .imaterial {grid-area: mt;}
+  .iid {grid-area: id;}
+}
+
+@media (min-width: 360px) and (max-width:600px){
+
+}
+
+@media (min-width: 600px) and (max-width:800px){
+
+}
+
+@media (min-width: 800px) and (max-width: 1200px){
+
+}
+
+@media (min-width: 1200px){
+
+}
