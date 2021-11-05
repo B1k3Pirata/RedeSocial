@@ -31,8 +31,8 @@ class AlunoDados(models.Model):
 
 class DocPessoal(models.Model):
     matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
-    rg = models.IntegerField(max_length=20, verbose_name='R.G.')
-    cpf = models.IntegerField(max_length=11, verbose_name='C.P.F.')
+    rg = models.CharField(max_length=20, verbose_name='R.G.')
+    cpf = models.CharField(max_length=11, verbose_name='C.P.F.')
     filia1 = models.CharField(max_length=30, verbose_name='filiação_1')
     filia2 = models.CharField(max_length=30, verbose_name='filiação_2')
 

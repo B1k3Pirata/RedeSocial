@@ -1,20 +1,21 @@
 {% extends 'basePG/base.html' %}
 {% load static %}
-
 {% load crispy_forms_tags %}
 
-{% block conteudo %}
+{% block 'conteudo' %}
 <div class="agendaC">
   <div class="titulo">
-    <h2>{{titulo}}</h2>
-    <div class="imagem">
-      <img class="usr_p" src="{% static 'img/hpardo.png' %}" alt="">
-    </div>
-  </div>
-  <div class="formu">
-    <form class="formulario" method="post" enctype='multipart/form-data'>
+    <!--<h2>{{titulo}}</h2>
+    {% if request.user.is_authenticated %}
+      {% for usuario in usuario %}
+      <p id="nome">nome: {{usuario.nome}}</p>
+      <p id="nome">nível: {{usuario.nivel}}</p>
+      {% endfor %}
+    {% endif %}-->
+    <form class="inicio" method="post">
       {% csrf_token %}
-      {{ form|crispy}}
+      {{ form|crispy }}
+      <hr>
       <button type="submit" class="save btn btn-primary">{{botaoA}}</button>
       <button type="reset" class="save btn btn-default">{{botaoB}}</button>
     </form>

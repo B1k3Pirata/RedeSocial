@@ -4,16 +4,24 @@ from django.urls import reverse_lazy, reverse, path
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from agenda.models import *
+from usuario.models import Matricula, AlunoDados, Imagens
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.models import User
 #@login_required
+def filtros(request):
+    pass
+
+class InicioAgenda(TemplateView):
+
+    template_name = 'agenda/inicioagenda.html'
+
 class Agendar1(CreateView):
-    model = AgendamentoAln
+    model = Disciplinas
     fields = [
         'nome','sobrenome', 'matricula', 'turno','email','cell','slug',
     ]
     template_name = 'agenda/form.html'
-    success_url = reverse_lazy('agendar2')
+    success_url = '/agenda/sucesso/'
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args,**kwargs)
@@ -21,14 +29,14 @@ class Agendar1(CreateView):
         context['botaoA'] = 'Agenda!'
         context['botaoB'] = 'Reseta'
         return context
-
+"""
 class Agendar2(CreateView):
     model = AgendamentoNVL
     fields = [
         'nivel'
     ]
     template_name = 'agenda/form.html'
-    success_url = reverse_lazy('agendar2')
+    success_url = '/agenda/agenda3/'
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args,**kwargs)
@@ -43,7 +51,7 @@ class Agendar3(CreateView):
         'dF','dM'
         ]
     template_name = 'agenda/form.html'
-    success_url = reverse_lazy('agendar3')
+    success_url = '/agenda/agenda4/'
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args,**kwargs)
@@ -58,14 +66,14 @@ class Agendar4(CreateView):
         'professor',
         ]
     template_name = 'agenda/form.html'
-    success_url = reverse_lazy('agendar4')
+    success_url = '/agenda/sucesso/'
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args,**kwargs)
         context['titulo'] = 'Agendamento de Aula'
         context['botaoA'] = 'Avançar'
         context['botaoB'] = 'Reseta'
-        return context
+        return context"""
 
 class Concluiu(TemplateView):
     template_name = 'agenda/sucesso.html'
@@ -82,7 +90,7 @@ class Concluiu(TemplateView):
 
 #Listagem e Detalhamento
 #@login_required
-'''class AgendaList(ListView):
+"""class AgendaList(ListView):
     model = Agendamento
     def get_querysert(self):
         self.agendamento_list = Agendamento.objects.filter(usuario=self.request.user)
@@ -100,4 +108,4 @@ class Concluiu(TemplateView):
 #@login_required
 class AgendaDet(DetailView):
     model = Agendamento
-'''
+"""

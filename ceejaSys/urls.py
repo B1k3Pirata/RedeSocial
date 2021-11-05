@@ -21,4 +21,5 @@ urlpatterns = [
     path('usuario/', include("allauth.urls")),
     path('', include('basePG.urls')),
     path('usuario/', include('usuario.urls', namespace='usuario')),
+    path('agenda/', include('agenda.urls', namespace='agenda')),
 ]
