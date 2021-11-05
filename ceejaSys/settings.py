@@ -41,11 +41,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     #3rd party
     'crispy_forms',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     #apps
     'basePG',
     'usuario',
+    'agenda.apps.AgendaConfig',
+    'perfil.apps.PerfilConfig',
 ]
 
 MIDDLEWARE = [
@@ -150,7 +156,7 @@ LOGOUT_REDIRECT_URL = 'login'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-'''#django-allauth --- validação de acesso com email e senha
+#django-allauth --- validação de acesso com email e senha
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
@@ -163,7 +169,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED =True
 ACCOUNT_UNIQUE_EMAIL =True
-'''
+
 # Crispy Forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

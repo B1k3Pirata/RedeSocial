@@ -1,0 +1,68 @@
+{% extends 'paginas/base.html' %}
+{% load static %}
+
+{% block conteudo %}
+{% if request.user.is_authenticated %}
+<div class="secao">
+  <div class="dados">
+    <div class="foto-p">
+      {% if avatar %}
+        {% for avatar in avatar %}
+          <!--{{avatar.avatar}}-->
+          <img id='avatar' src="{{avatar.avatar.url}}" alt="">
+        {% endfor %}
+      {% else %}
+        <img id="avatar" alt="avatar" src="{% static 'img/avatar1.png' %}">
+      {% endif %}
+    </div>
+    <div class="pessoal">
+      {% for a in pessoal %}
+      <div class="nome">
+        <p id="nome">{{a.nome}}</p>
+      </div>
+      <div class="snome">
+        <p id="snome">{{a.snome}}</p>
+      </div>
+      <div class="matr">
+        <p id="matr">{{a.matricula}}</p>
+      </div>
+      <div class="det">
+        <p id="det">{{a.detalhes}}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="cartao">
+      <div class="iagenda">
+        <a href="/agenda/agendar">
+          <img src="{% static 'img/scola_png/agenda.png' %}" width="75px" height="75px"><br></a>
+        <label>Agenda</label>
+      </div>
+      <div class="iagendador">
+        <a href="/agenda/list">
+          <img src="{% static 'img/scola_png/agendar.png' %}"  width="75px" height="75px"><br></a>
+        <label>Agendamento</label>
+      </div>
+      <div class="iprova">
+        <a href="/avalia/avaluno">
+          <img src="{% static 'img/scola_png/001-exam.png' %}"  width="75px" height="75px"><br></a>
+        <label>Provas e Exercícios</label>
+      </div>
+      <div class="inotas">
+        <a href="/avalia/notas">
+          <img src="{% static 'img/scola_png/Project_55-09.jpg' %}"  width="75px" height="75px"><br></a>
+        <label>Notas</label>
+      </div>
+      <div class="imaterial">
+        <a href="/">
+          <img src="{% static 'img/scola_png/g5110.png' %}"  width="75px" height="75px"><br></a>
+        <label>Módulos e Exercícios</label>
+      </div>
+      <div class="iid">
+        <a href="/">
+          <img src="{% static 'img/scola_png/014-identification.png' %}"  width="75px" height="75px"><br></a>
+        <label for="">Identificador</label>
+      </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -170,19 +170,24 @@ class Imagem(CreateView):
         context['botaoB'] = 'Limpar'
         context['botaoA'] = 'Cancelar'
         return context
-    success_url = '/usuario/usr/'
+    success_url = '/usuario/signup/'
+
+class LOG(TemplateView):
+    template_name = "usuario/form.html"
+
 class Usr(CreateView):
     model = Usr
     fields = '__all__'
-    template_name = 'usuario/form.html'
+    template_name = 'usuario/cadusr.html'
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['titulo'] = 'Cadastro de Usuário'
-        context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
+        context['titulo1'] = 'Cadastro de Acesso de Usuário'
+        context['texto'] = 'Preencha seus dados de acesso'
         context['botaoC'] = 'Avançar'
         context['botaoB'] = 'Limpar'
         context['botaoA'] = 'Cancelar'
         return context
     success_url = '/usuario/sucesso/'
+
 class Sucesso(TemplateView):
     template_name = 'usuario/sucesso.html'

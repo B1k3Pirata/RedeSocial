@@ -406,4 +406,4 @@ class Imagens(models.Model):
         return f'{avatar}{dochist}{docRG}{docRG2}{docCPF}{docRes}{docCertp}'
 
 class Usr(models.Model):
-    username = 
+    usuario = models.CharField(max_length=10)

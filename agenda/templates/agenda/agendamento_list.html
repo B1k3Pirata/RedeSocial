@@ -1,0 +1,59 @@
+{% extends 'paginas/base.html' %}
+{% load static %}
+
+{% block conteudo %}
+<div class="agenda-sec">
+  <div class="grade-agenda">
+    {% if user.is_authenticated %} <!-- mostra apenas o conteudo para usuario logado -->
+      <article class="artigo">
+        <div class="titulo">
+          <h2>Lista de Agendamentos</h2>
+        </div>
+        {% for agenda in agendamento_list %}<!-- filtro que mostra apenas o conteudo na lista -->
+        <div class="matricula">
+          <p id="matricula"><b>matricula: <a href="{{agenda.get_absolute_url}}">
+            {{agenda.matricula}}</a></b>
+
+        </div>
+        <div class="corpo-agenda">
+          <p>
+            <b>Aluno Agendado:</b> {{agenda.nome}} {{agenda.sobrenome}}
+            <br>
+            <b>nivel: </b>{{agenda.nivel}}<br>
+            <b>disciplina: </b>
+            {% if agenda.nivel == 'Fundamental' %}
+              {{agenda.dF}}
+            {% else %}
+              {{agenda.dM}}
+            {% endif %}
+            <br>
+            <b>turno: </b> {{agenda.turno}}<br>
+            <b>Professor: </b>{{agenda.professor}}<br>
+            <b>celular: </b> {{agenda.cell}}<br>
+            <b>email: </b> {{agenda.email}}<br>
+            <b>Protocolo de Agendamento: </b> <br>{{agenda.protocolo}}<br>
+            <b>Agendado em</b> {{ agenda.criado }} por {{ agenda.autor }}
+          </p>
+        </div>
+      {% endfor %}
+      <div class="botoes3">
+        <a href="/agenda/agendar">
+          <button type="button" name="button"style= border-radius: 6px; padding: 10px; cursor: pointer; color: #fff;font-size: 10px;>{{botaoA}}</button>
+          </a>
+        <a href='/perfil'>
+          <button type="button" name="button"style= border-radius: 6px; padding: 10px; cursor: pointer; color: #fff;font-size: 10px;>{{botaoB}}</button>
+          </a>
+        <a href='/'>
+          <button type="button" name="button"style= border-radius: 6px; padding: 10px; cursor: pointer; color: #fff;font-size: 10px;>{{botaoC}}</button>
+        </a>
+      </div>
+      </article>
+    </div>
+    {% else %}
+      <article>
+        <h2>Faça seu login para acessar o conteúdo da página</h2>
+      </article>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

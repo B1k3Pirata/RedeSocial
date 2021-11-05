@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <!--{% if request.user.is_authenticated %}
+      {{ user.get_profile.avatar}}
+        {% for avatar in avatar %}
+          {{avatar.avatar}}
+            <img src="{{avatar.avatar.url}}" alt="">
+        {% endfor %}
+    {% endif %}-->
+    {% if request.user.is_authenticated %}
+      {% for avatar in avatar %}
+        <img src="{{avatar.avatar.url}}" alt="">
+      {% endfor %}
+    {% endif %}
+  </body>
+</html>

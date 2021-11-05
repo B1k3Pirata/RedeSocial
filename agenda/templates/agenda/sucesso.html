@@ -1,0 +1,24 @@
+{% extends 'PgBase/base.html' %}
+{% load static %}
+
+{% block conteudo %}
+<div class="secao">
+  <div class="texto">
+    <div class="caixa">
+      <h1>{{titulo}}</h1>
+      <p>{{texto}}</p>
+      <div class="botoes3">
+        <a href="/agenda/agendar">
+          <button type="button" name="button"style= border-radius: 6px; padding: 10px; cursor: pointer; color: #fff;font-size: 10px;>{{botaoA}}</button>
+          </a>
+        <a href='/perfil'>
+          <button type="button" name="button"style= border-radius: 6px; padding: 10px; cursor: pointer; color: #fff;font-size: 10px;>{{botaoB}}</button>
+          </a>
+        <a href='/agenda/list'>
+          <button type="button" name="button"style= border-radius: 6px; padding: 10px; cursor: pointer; color: #fff;font-size: 10px;>{{botaoC}}</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
