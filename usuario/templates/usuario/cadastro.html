@@ -1,0 +1,48 @@
+{% extends 'basePG/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block titulo %}{{titulo1}}{% endblock %}
+
+{% block conteudo %}
+<div class="cad">
+  <br>
+ {% if status == '0' %}
+   <div class="alert alert-success" role="alert">
+     Dados Inseridos com sucesso!
+   </div>
+ {% endif %}
+ {% if status == '1' %}
+   <div class="alert alert-danger" role="alert">
+     Nome e/ou E-Mail vazios!
+   </div>
+ {% endif %}
+ {% if status == '2' %}
+   <div class="alert alert-danger" role="alert">
+     Senha menor que 8 digitos!
+   </div>
+ {% endif %}
+ {% if status == '3' %}
+   <div class="alert alert-danger" role="alert">
+     Usuário já existente no banco de dados!
+   </div>
+ {% endif %}
+ {% if status == '4' %}
+   <div class="alert alert-danger" role="alert">
+     Erro no Sitema!
+   </div>
+ {% endif %}
+ <div class="titulo">
+   <h3>{{titulo}}</h3>
+ </div>
+ <div class="corpo">
+   <p>{{texto1}}</p>
+   <form class="formulario" method="POST" enctype='multipart/form-data'>
+     {% csrf_token %}
+     {{ form|crispy}}
+     <a href="/usuario/inicio/"><button type="button" class="btn btn-info btn-sm" name="botao">{{botaoA}}</button> </a>
+     <input type="reset" class="btn btn-warning btn-sm" name="botao" value="{{botaoB}}">
+     <input type="submit" class="btn btn-success btn-sm" name="botao" value="{{botaoC}}">
+   </form>
+ </div>
+{% endblock %}

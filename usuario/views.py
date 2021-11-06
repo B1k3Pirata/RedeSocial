@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView
 from django.urls import reverse
+from django.http import HttpResponse
 
 from .models import *
 
@@ -96,6 +97,21 @@ class Endereco(CreateView):
         context['botaoB'] = 'Limpar'
         context['botaoA'] = 'Cancelar'
         return context
+    success_url = '/usuario/contato/'
+
+class Contato(CreateView):
+    model = Contato
+    fields = '__all__'
+    template_name = 'usuario/form.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = 'Cadastro de Usuário'
+        context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
+        context['botaoC'] = 'Avançar'
+        context['botaoB'] = 'Limpar'
+        context['botaoA'] = 'Cancelar'
+        return context
     success_url = '/usuario/sau/'
 
 class Saude(CreateView):
@@ -170,24 +186,40 @@ class Imagem(CreateView):
         context['botaoB'] = 'Limpar'
         context['botaoA'] = 'Cancelar'
         return context
-    success_url = '/usuario/signup/'
-
-class LOG(TemplateView):
-    template_name = "usuario/form.html"
-
-class Usr(CreateView):
-    model = Usr
-    fields = '__all__'
-    template_name = 'usuario/cadusr.html'
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context['titulo1'] = 'Cadastro de Acesso de Usuário'
-        context['texto'] = 'Preencha seus dados de acesso'
-        context['botaoC'] = 'Avançar'
-        context['botaoB'] = 'Limpar'
-        context['botaoA'] = 'Cancelar'
-        return context
-    success_url = '/usuario/sucesso/'
+    success_url = '/usuario/cadastro/'
 
 class Sucesso(TemplateView):
     template_name = 'usuario/sucesso.html'
+
+"""def login(request):
+    model = UsrLog
+    fields = '__all__'
+    return render(request, 'usuario/login.html')
+"""
+class Login(CreateView):
+    model = UsrLog
+    fields = '__all__'
+    template_name = 'usuario/form.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = 'Cadastro de Acesso ao Usuário'
+        #context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
+        context['botaoC'] = 'Avançar'
+        context['botaoB'] = 'Limpar'
+        context['botaoA'] = 'Cadastro'
+        return context
+    #success_url = '/usuario/sucesso/'
+
+class Cadastro(CreateView):
+    model = UsrCad
+    fields = '__all__'
+    template_name = 'usuario/form.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = 'Cadastro de Acesso ao Usuário'
+        #context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
+        context['botaoC'] = 'Avançar'
+        context['botaoB'] = 'Limpar'
+        context['botaoA'] = 'Logar'
+        return context
+    success_url = '/usuario/sucesso/'

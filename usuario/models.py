@@ -161,8 +161,6 @@ class End(models.Model):
     brr = models.CharField(max_length=1055,verbose_name="bairro")
     uncon = models.CharField(max_length=105,verbose_name="Unidade Consumidora(CELPA)")
     qzon = models.CharField(max_length=10, choices=QZon,verbose_name="zona")
-    ct1 = models.CharField(max_length=105,default="", verbose_name="contato #1")
-    ct2 = models.CharField(max_length=105,default="",verbose_name="contato #2")
 
     class Meta:
         verbose_name = 'Endereço'
@@ -405,5 +403,35 @@ class Imagens(models.Model):
     def __str__(self) -> str:
         return f'{avatar}{dochist}{docRG}{docRG2}{docCPF}{docRes}{docCertp}'
 
-class Usr(models.Model):
+class Contato(models.Model):
+    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
+    telefone = models.CharField(max_length=10, blank=True)
+    celular = models.CharField(max_length=11)
+
+    class Meta:
+        verbose_name = 'Contato'
+
+    def __str__(self) -> str:
+        return f"{self.telefone}{self.celular}"
+
+class UsrCad(models.Model):
+    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
     usuario = models.CharField(max_length=10)
+    senha = models.CharField(max_length=64)
+    email = models.CharField(max_length=30)
+    
+    class Meta:
+        verbose_name = 'UsrCad'
+
+    def __str__(self) -> str:
+        return f"{self.usuario}{self.senha}{self.email}"
+
+class UsrLog(models.Model):
+    usuario = models.CharField(max_length=10)
+    senha = models.CharField(max_length=64)
+
+    class Meta:
+        verbose_name = 'UsrLog'
+
+    def __str__(self) -> str:
+        return f"{self.usuario}{self.senha}"
