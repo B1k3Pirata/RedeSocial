@@ -1,9 +1,44 @@
 from django.db import models
 
 # Create your models here.
+class Aluno(models.Model):
+    quest = [('sim','sim'),('não','não')]
+    pmatr = models.CharField(max_length=4,choices=quest, verbose_name='possui matrícula?')
+
+    class Meta:
+        verbose_name = 'Aluno'
+
+    def __str__(self) -> str:
+        return
+
+class UsrCad(models.Model):
+    usuario = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    senha = models.CharField(max_length=64)
+
+    class Meta:
+        verbose_name = 'UsrCad'
+
+    def __str__(self) -> str:
+        return f"{self.usuario}{self.senha}{self.email}"
+
+class Matricula0(models.Model):
+    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
+    matricula = models.CharField(max_length=6, verbose_name='matrícula')
+    nvl = [
+        ('fundamental','fundamental'),
+        ('médio','médio')
+        ]
+    nivel = models.CharField(max_length=20, choices=nvl, verbose_name='nível')
+
+    class Meta:
+        verbose_name = 'Matricula'
+
+    def __str__(self) -> str:
+        return f"{self.matricula}{self.ano_matricula}{self.nivel}"
 
 class Matricula(models.Model):
-    matricula = models.CharField(max_length=6, verbose_name='matrícula')
+    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     ano_matricula = models.CharField(max_length=4, verbose_name='ano de matrícula')
     nvl = [
         ('fundamental','fundamental'),
@@ -18,7 +53,7 @@ class Matricula(models.Model):
         return f"{self.matricula}{self.ano_matricula}{self.nivel}"
 
 class AlunoDados(models.Model):
-    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     nome = models.CharField(max_length=255, verbose_name='nome completo')
     snome = models.CharField(max_length=255, verbose_name='sobrenome completo')
     dataMat = models.DateTimeField(auto_now_add=True)
@@ -30,7 +65,7 @@ class AlunoDados(models.Model):
         return f"{self.nome}{self.snome}{self.dataMat}"
 
 class DocPessoal(models.Model):
-    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     rg = models.CharField(max_length=20, verbose_name='R.G.')
     cpf = models.CharField(max_length=11, verbose_name='C.P.F.')
     filia1 = models.CharField(max_length=30, verbose_name='filiação_1')
@@ -43,7 +78,7 @@ class DocPessoal(models.Model):
         return f'{self.rg}{self.cpf}{self.filia1}{self.filia2}'
 
 class Pessoal(models.Model):
-    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     #fonte de dados
     Sexo = [
         ("F", "Feminino"),
@@ -89,7 +124,7 @@ class Pessoal(models.Model):
         return  f'{self.Dnasc}{self.sexo}{self.raca}{self.qprenm}{self.prenm}{self.nacio}{self.qnacio}{self.ufnasc}{self.locnascS}'
 
 class Documento(models.Model):
-    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     #Documentos
     QCer = [
         ("S","Sim"),
@@ -142,7 +177,7 @@ class Documento(models.Model):
         return f'{self.qpcer}{self.tpcerl}{self.nocer}{self.nocer}{self.licer}{self.flcer}{self.emtcr}{self.cartc}{self.ufcrt}{self.cidcrt}{self.qrg}{self.norg}{self.orgrg}{self.ufrg}{self.dtrg}{self.cpf}{self.pasp}'
 
 class End(models.Model):
-    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     UF = [
         ("PA"), ("AM"),("AC"),("AP"),("RR"),("MA"),("TO"),
         ("AL"),("PE"),("GO"),("ES"),("BA"),("MT"),("MS"),("MG"),
@@ -169,7 +204,7 @@ class End(models.Model):
         return f'{self.end}{self.num}{self.muni}{self.cep}{self.comp}{self.brr}{self.uncon}{self.qzon}{self.ct1}{self.ct2}{self.email}'
 
 class Sau(models.Model):
-    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     #dados Complementares
     AEP = [
         ("S","Sim"),
@@ -259,7 +294,7 @@ class Sau(models.Model):
         return  f'{self.aep}{self.cego}{self.bv}{self.sc}{self.sd}{self.da}{self.di}{self.dm}{self.df}{self.ai}{self.srt}{self.sasp}{self.tdi}{self.ahs}{slf.srt}{self.sasp}{self.tdi}'
 
 class Social(models.Model):
-    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     #Programas sociais
     BCP = [
         ("S","Sim"),
@@ -289,7 +324,7 @@ class Social(models.Model):
         return f'{self.bcp}{self.pbf}{self.pbt}{self.peti}'
 
 class Transp(models.Model):
-    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     #Programas Transporte
     PPRTE = [
         ("S","Sim"),
@@ -344,7 +379,7 @@ class Transp(models.Model):
         return  f'{self.pprte},{self.pbfa},{self.qserv},{self.urb},{self.rod},{self.aqua},{self.trm}'
 
 class Proc(models.Model):
-    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     #Procedência do aluno
     P1a = [
         ("S","Sim"),
@@ -388,7 +423,7 @@ class Proc(models.Model):
         return f'{self.nesc},{self.pore1a},{self.pore2a},{self.pore3a}, {self.pore4a},{self.comec},{self.anx},{self.idtnv},{self.fase},{self.turno},{self.turno},{self.modal},{self.seq},{self.rat}'
 
 class Imagens(models.Model):
-    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     avatar = models.FileField(upload_to='avatar', blank=True)
     dochist = models.FileField(upload_to='historico', blank=True)
     docRG = models.FileField(upload_to='rg', blank=True)
@@ -404,7 +439,7 @@ class Imagens(models.Model):
         return f'{avatar}{dochist}{docRG}{docRG2}{docCPF}{docRes}{docCertp}'
 
 class Contato(models.Model):
-    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     telefone = models.CharField(max_length=10, blank=True)
     celular = models.CharField(max_length=11)
 
@@ -414,20 +449,8 @@ class Contato(models.Model):
     def __str__(self) -> str:
         return f"{self.telefone}{self.celular}"
 
-class UsrCad(models.Model):
-    matric = models.ForeignKey(Matricula, null=True, blank=True, on_delete=models.CASCADE)
-    usuario = models.CharField(max_length=10)
-    senha = models.CharField(max_length=64)
-    email = models.CharField(max_length=30)
-    
-    class Meta:
-        verbose_name = 'UsrCad'
-
-    def __str__(self) -> str:
-        return f"{self.usuario}{self.senha}{self.email}"
-
 class UsrLog(models.Model):
-    usuario = models.CharField(max_length=10)
+    usuario = models.CharField(max_length=100)
     senha = models.CharField(max_length=64)
 
     class Meta:

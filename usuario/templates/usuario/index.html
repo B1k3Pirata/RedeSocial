@@ -1,9 +1,26 @@
 {% extends 'basePG/base.html' %}
 {% load static%}
 
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/index.css' %}">
+{% endblock %}
 {% block 'titulo' %}Cadastro de Usuario INICIO{% endblock %}
 
 {% block 'conteudo' %}
-  <h1>USUARIO</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class="corpo-noticia">
+  <form class="" action="index.html" method="post">
+    <h1>USUARIO</h1>
+    <div class="cad">
+      <div class="titulo">
+        <h3>matricula {{}}</h3>
+      </div>
+      <div class="corpo">
+        <p>{{texto}}</p>
+        <p>{{texto1}}</p>
+      </div>
+      <input href="/usuario/func" class="btn btn-warning btn-sm" name="botao" value="{{botaoA}}">
+      <input href="/usuario/matricula/" class="btn btn-success btn-sm" name="botao" value="{{botaoB}}">
+    </div>
+  </form>
+</div>
 {% endblock %}
