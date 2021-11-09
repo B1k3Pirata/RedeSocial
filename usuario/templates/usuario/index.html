@@ -1,26 +1,35 @@
-{% extends 'basePG/base.html' %}
-{% load static%}
-
-{% block css %}
-<link rel="stylesheet" href="{% static '/css/index.css' %}">
-{% endblock %}
-{% block 'titulo' %}Cadastro de Usuario INICIO{% endblock %}
-
-{% block 'conteudo' %}
-<div class="corpo-noticia">
-  <form class="" action="index.html" method="post">
-    <h1>USUARIO</h1>
-    <div class="cad">
-      <div class="titulo">
-        <h3>matricula {{}}</h3>
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <form class="form" id="form" action="" method="post" data-funcoes-url="{% url 'ajax_load_funcoes' %}">
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="categoria-id">Categoria</label>
+      <div class="col-sm-8">
+        <select class="" name="categoria-id" required id="categoria-id">
+          {% for categoria in categoria %}
+          <option value="{{categoria.id}}">{{categoria.nome}}</option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="corpo">
-        <p>{{texto}}</p>
-        <p>{{texto1}}</p>
-      </div>
-      <input href="/usuario/func" class="btn btn-warning btn-sm" name="botao" value="{{botaoA}}">
-      <input href="/usuario/matricula/" class="btn btn-success btn-sm" name="botao" value="{{botaoB}}">
     </div>
-  </form>
-</div>
-{% endblock %}
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="grupo-id">Categoria</label>
+      <div class="col-sm-8">
+        <select class="" name="grupo-id" required id="grupo-id">
+          {% for grupo in grupo %}
+          <option value="{{grupo.id}}">{{grupo.nome}}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    </form>
+  </body>
+</html>

@@ -4,11 +4,11 @@ from django.urls import reverse_lazy, reverse, path
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from agenda.models import *
-from usuario.models import Matricula, AlunoDados, Imagens
+#from usuario.models import Matricula, AlunoDados, Imagens
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 #@login_required
-def filtros(request):
+"""def filtros(request):
     pass
 
 class InicioAgenda(TemplateView):
@@ -28,7 +28,7 @@ class Agendar1(CreateView):
         context['titulo'] = 'Agendamento de Aula'
         context['botaoA'] = 'Agenda!'
         context['botaoB'] = 'Reseta'
-        return context
+        return context"""
 """
 class Agendar2(CreateView):
     model = AgendamentoNVL

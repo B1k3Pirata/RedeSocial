@@ -1,6 +1,9 @@
 from django.db import models
 
 # Create your models here.
+class Categoria(models.Model):
+    nome = models.CharField(max_length=20)
+    
 class Aluno(models.Model):
     quest = [('sim','sim'),('não','não')]
     pmatr = models.CharField(max_length=4,choices=quest, verbose_name='possui matrícula?')
@@ -22,7 +25,7 @@ class UsrCad(models.Model):
     def __str__(self) -> str:
         return f"{self.usuario}{self.senha}{self.email}"
 
-class Matricula0(models.Model):
+class AlMatrNovo(models.Model):
     usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     matricula = models.CharField(max_length=6, verbose_name='matrícula')
     nvl = [
@@ -37,7 +40,7 @@ class Matricula0(models.Model):
     def __str__(self) -> str:
         return f"{self.matricula}{self.ano_matricula}{self.nivel}"
 
-class Matricula(models.Model):
+class AlMatricVet(models.Model):
     usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
     ano_matricula = models.CharField(max_length=4, verbose_name='ano de matrícula')
     nvl = [

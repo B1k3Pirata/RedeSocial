@@ -11,14 +11,7 @@ from datetime import date, time, datetime
 
 app_name = 'usuario'
 
-def Inicio(request):
-    pass
-    
-class Aluno(CreateView):
-    model = Aluno
-    fields = '__all__'
-    template_name = 'usuario/form.html'
-    """
+"""def aluno(request):
     possui_matr = "não"
     if possui_matr == "sim":
         success_url = '/usuario/dados/'
@@ -30,7 +23,7 @@ class Aluno(CreateView):
         ano = anocorr.year
         inseremat = c.execute("INSERT INTO usuario_matricula VALUES(f'"+conta+"','"+ano+"')")
         dado.commit()
-"""
+
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context['titulo'] = 'Cadastro de Usuário'
@@ -42,11 +35,8 @@ class Aluno(CreateView):
         return context
     success_url = '/usuario/dados/'
 
-def matric(request):
-    mnova = Matricula.objects.all()
-
 class AlunoNovo(CreateView):
-    model = Matricula0
+    model = AlMatrNovo
     fields = '__all__'
     template_name = 'usuario/form.html'
     def get_context_data(self, *args, **kwargs):
@@ -61,7 +51,7 @@ class AlunoNovo(CreateView):
     success_url = '/usuario/dados/'
 
 class AlunoVeterano(CreateView):
-    model = Matricula
+    model = AlMatricVet
     fields = ['matricula','ano_matricula','nivel']
     template_name = 'usuario/form.html'
     def get_context_data(self, *args, **kwargs):
@@ -242,11 +232,6 @@ class Imagem(CreateView):
 class Sucesso(TemplateView):
     template_name = 'usuario/sucesso.html'
 
-"""def login(request):
-    model = UsrLog
-    fields = '__all__'
-    return render(request, 'usuario/login.html')
-"""
 class Login(CreateView):
     model = UsrLog
     fields = '__all__'
@@ -315,3 +300,4 @@ class Cadastro(CreateView):
 def sair(request):
     request.session.flush()
     return redirect('/usuario/login/')
+"""
