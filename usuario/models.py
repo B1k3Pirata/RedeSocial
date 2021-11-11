@@ -1,19 +1,50 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+import uuid
+from datetime import date, time, datetime
 
 # Create your models here.
 class Categoria(models.Model):
-    nome = models.CharField(max_length=20)
-    
-class Aluno(models.Model):
-    quest = [('sim','sim'),('não','não')]
-    pmatr = models.CharField(max_length=4,choices=quest, verbose_name='possui matrícula?')
-
+    quest = [('CBP','Candidato a Banca Permanente'),('CAP','Candidato ao Atendimento Personalizado')]
+    pmatr = models.CharField(max_length=4,choices=quest, verbose_name='Selecione Candidatura')
     class Meta:
-        verbose_name = 'Aluno'
+        verbose_name = 'SelecionaCategoria'
 
     def __str__(self) -> str:
-        return
+        return f"{self.pmatr}"
 
+#candidato a banca Permanente
+class BancaPermanente(models.Model):
+    nome = models.CharField(max_length=255, verbose_name='nome completo')
+    snome = models.CharField(max_length=255, verbose_name='sobrenome completo')
+    dataCad = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(max_length=255, unique=True)
+    controle = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'BancaPermanente'
+
+    def __str__(self) -> str:
+        return f"{self.nome}"
+
+#candidato/aluno
+class AtendimentoPersonalizado(models.Model):
+    nome = models.CharField(max_length=255, verbose_name='nome completo')
+    snome = models.CharField(max_length=255, verbose_name='sobrenome completo')
+    dataCad = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(max_length=255, unique=True)
+    controle = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'AtendimentoPersonalizado'
+
+    def __str__(self) -> str:
+        return f"{self.nome}"
+
+#cadastro de aluno/usuario
 class UsrCad(models.Model):
     usuario = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
@@ -23,40 +54,11 @@ class UsrCad(models.Model):
         verbose_name = 'UsrCad'
 
     def __str__(self) -> str:
-        return f"{self.usuario}{self.senha}{self.email}"
+        return f"{self.usuario}"
 
-class AlMatrNovo(models.Model):
-    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
-    matricula = models.CharField(max_length=6, verbose_name='matrícula')
-    nvl = [
-        ('fundamental','fundamental'),
-        ('médio','médio')
-        ]
-    nivel = models.CharField(max_length=20, choices=nvl, verbose_name='nível')
-
-    class Meta:
-        verbose_name = 'Matricula'
-
-    def __str__(self) -> str:
-        return f"{self.matricula}{self.ano_matricula}{self.nivel}"
-
-class AlMatricVet(models.Model):
-    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
-    ano_matricula = models.CharField(max_length=4, verbose_name='ano de matrícula')
-    nvl = [
-        ('fundamental','fundamental'),
-        ('médio','médio')
-        ]
-    nivel = models.CharField(max_length=20, choices=nvl, verbose_name='nível')
-
-    class Meta:
-        verbose_name = 'Matricula'
-
-    def __str__(self) -> str:
-        return f"{self.matricula}{self.ano_matricula}{self.nivel}"
-
+#dados do aluno
 class AlunoDados(models.Model):
-    usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(UsrCad, on_delete=models.CASCADE)
     nome = models.CharField(max_length=255, verbose_name='nome completo')
     snome = models.CharField(max_length=255, verbose_name='sobrenome completo')
     dataMat = models.DateTimeField(auto_now_add=True)
@@ -67,10 +69,8 @@ class AlunoDados(models.Model):
     def __str__(self) -> str:
         return f"{self.nome}{self.snome}{self.dataMat}"
 
-class DocPessoal(models.Model):
+class Parentesco(models.Model):
     usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
-    rg = models.CharField(max_length=20, verbose_name='R.G.')
-    cpf = models.CharField(max_length=11, verbose_name='C.P.F.')
     filia1 = models.CharField(max_length=30, verbose_name='filiação_1')
     filia2 = models.CharField(max_length=30, verbose_name='filiação_2')
 

@@ -48,8 +48,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     #apps
-    'basePG',
-    'usuario',
+    'basePG.apps.BasepgConfig',
+    'usuario.apps.UsuarioConfig',
     'agenda.apps.AgendaConfig',
     'perfil.apps.PerfilConfig',
 ]

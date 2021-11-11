@@ -1,35 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <form class="form" id="form" action="" method="post" data-funcoes-url="{% url 'ajax_load_funcoes' %}">
-    <div class="form-group">
-      <label class="control-label col-sm-3" for="categoria-id">Categoria</label>
-      <div class="col-sm-8">
-        <select class="" name="categoria-id" required id="categoria-id">
-          {% for categoria in categoria %}
-          <option value="{{categoria.id}}">{{categoria.nome}}</option>
-          {% endfor %}
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-3" for="grupo-id">Categoria</label>
-      <div class="col-sm-8">
-        <select class="" name="grupo-id" required id="grupo-id">
-          {% for grupo in grupo %}
-          <option value="{{grupo.id}}">{{grupo.nome}}</option>
-          {% endfor %}
-        </select>
-      </div>
-    </div>
-    </form>
-  </body>
-</html>
+{% extends 'basePG/base.html' %}
+{% load static %}
+
+{% block conteudo %}
+    <h1>Pré-Cadastro</h1>
+    <hr>
+    <p>Seja bem-vindo(a) Candidato(a)!
+      Selecione um dos botões abaixo a opção a qual você estará se pré-cadastrando</p>
+    <hr>
+    <a href="/usuario/cap/"><button type="button" class="btn btn-info btn-sm" name="botao">Atendimento Personalizado</button></a>
+    <a href="/usuario/cbp/"><button type="button" class="btn btn-info btn-sm" name="botao">Banca Permanente</button></a>
+    <hr>
+    <h1>Cadastro</h1>
+    <hr>
+    <p>
+      Caso já tenha participado da Reunião de Recepção, siga pra seção de CADASTRO COMPLETO
+    </p>
+    <hr>
+    <a href="/usuario/usrcad/"><button type="button" class="btn btn-info btn-sm" name="botao">Atendimento Personalizado</button></a>
+    <a href="/usuario/cbp/"><button type="button" class="btn btn-info btn-sm" name="botao">Banca Permanente</button></a>
+    <hr>
+{% endblock %}

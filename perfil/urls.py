@@ -6,5 +6,5 @@ app_name = 'perfil'
 
 urlpatterns = [
     #path('perfil/avatar', lista_avatar, name='avatar'),
-    path('perfil/inicio', PerfilInicio.as_view(), name='perfil'),
+    path('inicio/', PerfilInicio.as_view(), name='perfil'),
 ]

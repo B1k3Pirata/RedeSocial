@@ -1,0 +1,13 @@
+{% extends "basePG/base.html" %}
+{% load static %}
+
+{% block conteudo %}
+  <h1>Pré-Cadastro</h1>
+  {% for atendimento in CompDetalheAP %}
+    <h3>{{atendimento.nome}}</h3>
+    <p>{{atendimento.nome}} {{atendimento.sobrenome}}</p>
+    <p class="data">
+      cadastrado em {{atendimento.dataCad}} por {{atendimento.autor}}
+    </p>
+  {% endfor %}
+{% endblock %}

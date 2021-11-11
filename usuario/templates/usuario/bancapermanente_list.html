@@ -1,0 +1,15 @@
+{% extends "basePG/base.html" %}
+{% load static %}
+
+{% block conteudo %}
+<div class="corpo-noticia">
+  <h1>Pré-Cadastro</h1>
+  {% for banca in BancaPermanente_list %}
+    <h3>{{banca.nome}}</h3>
+    <p>{{banca.nome}} {{banca.sobrenome}}</p>
+    <p class="data">
+      cadastrado em {{banca.dataCad}} por {{banca.autor}}
+    </p>
+  {% endfor %}
+</div>
+{% endblock %}

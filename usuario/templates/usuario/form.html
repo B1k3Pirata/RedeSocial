@@ -14,8 +14,12 @@
   <div class="corpo">
     <p>{{texto1}}</p>
     <form class="formulario" method="POST" enctype='multipart/form-data'>
-      {% csrf_token %}
-      {{ form|crispy}}
+      {% if possui %}
+        <p>{{matricula}}</p>
+      {% else %}
+        {% csrf_token %}
+        {{ form|crispy}}
+      {% endif %}
       <a href="/usuario/inicio/"><button type="button" class="btn btn-info btn-sm" name="botao">{{botaoA}}</button> </a>
       <input type="reset" class="btn btn-warning btn-sm" name="botao" value="{{botaoB}}">
       <input type="submit" class="btn btn-success btn-sm" name="botao" value="{{botaoC}}">

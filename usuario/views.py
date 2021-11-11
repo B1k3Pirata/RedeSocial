@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, ListView, DetailView
 from django.urls import reverse
 from django.http import HttpResponse
+from django.template.loader import get_template
+from django.contrib.auth.models import User
 
 from .models import *
 
@@ -11,60 +13,69 @@ from datetime import date, time, datetime
 
 app_name = 'usuario'
 
-"""def aluno(request):
-    possui_matr = "não"
-    if possui_matr == "sim":
-        success_url = '/usuario/dados/'
-    else:
-        dado = sl.connect('db.sqlite3')
-        c = dado.cursor()
-        conta = c.execute("SELECT MAX(id) FROM usuario_matricula", dado)
-        anocorr = date.today()
-        ano = anocorr.year
-        inseremat = c.execute("INSERT INTO usuario_matricula VALUES(f'"+conta+"','"+ano+"')")
-        dado.commit()
+def inicio(request):
+    return render(request,'usuario/index.html')
 
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context['titulo'] = 'Cadastro de Usuário'
-        context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
-        context['botaoD'] = 'Aluno Novo'
-        context['botaoC'] = 'Avançar'
-        context['botaoB'] = 'Limpar'
-        context['botaoA'] = 'Cancelar'
-        return context
-    success_url = '/usuario/dados/'
-
-class AlunoNovo(CreateView):
-    model = AlMatrNovo
+class SelecionaCategoria(CreateView):
+    model = Categoria
     fields = '__all__'
     template_name = 'usuario/form.html'
+
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['titulo'] = 'Cadastro de Usuário'
-        context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
-        context['botaoD'] = 'Aluno Novo'
+        context['titulo'] = 'Pré-Cadastro de Usuário'
+        context['texto1'] = 'Selecione uma opção de pré-cadastro'
+        #context['botaoD'] = 'Aluno Novo'
         context['botaoC'] = 'Avançar'
-        context['botaoB'] = 'Limpar'
+        #context['botaoB'] = 'Limpar'
         context['botaoA'] = 'Cancelar'
         return context
     success_url = '/usuario/dados/'
 
-class AlunoVeterano(CreateView):
-    model = AlMatricVet
-    fields = ['matricula','ano_matricula','nivel']
+class BP(CreateView):
+    model = BancaPermanente
+    fields = '__all__'
     template_name = 'usuario/form.html'
+
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['titulo'] = 'Cadastro de Usuário'
-        context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
-        context['botaoD'] = 'Aluno Novo'
+        context['titulo'] = 'Pré-Cadastro de Usuário'
+        context['texto1'] = 'Insira seus dados para o pré-cadastro'
+        #context['botaoD'] = 'Aluno Novo'
         context['botaoC'] = 'Avançar'
-        context['botaoB'] = 'Limpar'
+        #context['botaoB'] = 'Limpar'
         context['botaoA'] = 'Cancelar'
         return context
     success_url = '/usuario/dados/'
 
+class AP(CreateView):
+    model = AtendimentoPersonalizado
+    fields = '__all__'
+    template_name = 'usuario/form.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = 'Pré-Cadastro de Usuário'
+        context['texto1'] = 'Insira seus dados para o pré-cadastro'
+        #context['botaoD'] = 'Aluno Novo'
+        context['botaoC'] = 'Avançar'
+        #context['botaoB'] = 'Limpar'
+        context['botaoA'] = 'Cancelar'
+        return context
+    success_url = '/usuario/dados/'
+
+class GeraComprovante_AP(ListView):
+    model = AtendimentoPersonalizado
+
+class GeraComprovante_BP(ListView):
+    model = BancaPermanente
+
+class CompDetalheAP(DetailView):
+    model = AtendimentoPersonalizado
+
+class CompDetalheBP(DetailView):
+    model = BancaPermanente
+#Cadastro de Aluno
 class DadosAluno(CreateView):
     model = AlunoDados
     fields = '__all__'#['nome','snome']
@@ -80,8 +91,8 @@ class DadosAluno(CreateView):
         return context
     success_url = '/usuario/docs/'
 
-class DocP(CreateView):
-    model = DocPessoal
+class Parentesco(CreateView):
+    model = Parentesco
     fields = '__all__'#['rg','cpf','filia1','filia2']
     template_name = 'usuario/form.html'
 
@@ -95,7 +106,7 @@ class DocP(CreateView):
         return context
     success_url = '/usuario/docs2/'
 
-class DocP2(CreateView):
+class DocP(CreateView):
     model = Pessoal
     fields = '__all__'#['Dnasc','sexo','raca','qprenm','prenm','nacio','qnacio','ufnasc','locnasc']
     template_name = 'usuario/form.html'
@@ -110,7 +121,7 @@ class DocP2(CreateView):
         return context
     success_url = '/usuario/docs3/'
 
-class DocP3(CreateView):
+class DocP2(CreateView):
     model = Documento
     fields = '__all__'#['qpcer','tpcerl','nocer','licer','flcer','emtcr','cartc','ufcrt','cidcrt','qrg','norg','orgrg','ufrg','dtrg','cpf','pasp']
     template_name = 'usuario/form.html'
@@ -259,7 +270,7 @@ class Login(CreateView):
 
         return HttpResponse(f'{email} {senha}')
 
-class Cadastro(CreateView):
+class Cadastro_de_Usuario(CreateView):
     model = UsrCad
     fields = '__all__'
     template_name = 'usuario/form.html'
@@ -295,9 +306,8 @@ class Cadastro(CreateView):
         except:
             return redirect('/usuario/cadastro/?status=4')
 
-    success_url = '/usuario/sucesso/'
+    success_url = '/usuario/aluno/'
 
 def sair(request):
     request.session.flush()
     return redirect('/usuario/login/')
-"""
