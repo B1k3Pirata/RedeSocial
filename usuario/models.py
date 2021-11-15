@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.contrib.auth.forms import AuthenticationForm
 import uuid
 from datetime import date, time, datetime
 
@@ -46,7 +46,7 @@ class AtendimentoPersonalizado(models.Model):
 
 #cadastro de aluno/usuario
 class UsrCad(models.Model):
-    usuario = models.CharField(max_length=100)
+    nome = models.CharField(max_length=50)
     email = models.CharField(max_length=100)
     senha = models.CharField(max_length=64)
 
@@ -54,8 +54,18 @@ class UsrCad(models.Model):
         verbose_name = 'UsrCad'
 
     def __str__(self) -> str:
-        return f"{self.usuario}"
+        return self.nome
 
+class UsrLog(models.Model):
+    nome = models.CharField(max_length=100)
+    senha = models.CharField(max_length=64)
+
+    class Meta:
+        verbose_name = 'UsrLog'
+
+    def __str__(self) -> str:
+        return f"{self.nome}{self.nome}"
+        
 #dados do aluno
 class AlunoDados(models.Model):
     usuario = models.ForeignKey(UsrCad, on_delete=models.CASCADE)
@@ -451,13 +461,3 @@ class Contato(models.Model):
 
     def __str__(self) -> str:
         return f"{self.telefone}{self.celular}"
-
-class UsrLog(models.Model):
-    usuario = models.CharField(max_length=100)
-    senha = models.CharField(max_length=64)
-
-    class Meta:
-        verbose_name = 'UsrLog'
-
-    def __str__(self) -> str:
-        return f"{self.usuario}{self.senha}"

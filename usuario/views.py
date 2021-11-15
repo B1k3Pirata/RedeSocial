@@ -4,6 +4,8 @@ from django.urls import reverse
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
+from hashlib import sha256
 
 from .models import *
 
@@ -15,7 +17,64 @@ app_name = 'usuario'
 
 def inicio(request):
     return render(request,'usuario/index.html')
+#cadastro e login
+def cadastro(request):
+    if request.session.get('usuario'):
+        return redirect('/usuario/inicio/')
+    status = request.GET.get('status')
+    return render(request, 'usuario/cadastro.html', {'status': status})
 
+def valida_cadastro(request):
+    nome    = request.POST.get('nome')
+    senha   = request.POST.get('senha')
+    email   = request.POST.get('email')
+
+    #usuario = UsrCad(usuario=usuario,email=email,senha=senha)
+    #return HttpResponse(f"{usuario}, {senha}, {email}")
+    usuario = UsrCad.objects.filter(email = email)
+    if len(nome.strip())==0 or len(email.strip())==0: #verifica espaços vazios e anula
+        return redirect('/usuario/cadastro/?status=1')
+
+    if len(senha)<8: #verifica senha menor que oito caracteres
+        return redirect('/usuario/inicio/?status=2')
+
+    if len(usuario)>0: #verifica se usuario existe
+        return redirect('/usuario/cadastro/?status=3')
+
+    try: #se tudo OK, salva no Banco de Dados
+        senha = sha256(senha.encode()).hexdigest()
+        usuario = UsrCad(nome=nome,senha=senha,email=email)
+        usuario.save()
+        return redirect('/usuario/cadastro/?status=0')
+    except: #caso Contrario sinaliza como erro do sistema
+        return redirect('/usuario/cadastro/?status=4')
+
+def login(request):
+    def login(request):
+        if request.session.get('usuario'):
+            return redirect('/usuario/inicio/')
+    status = request.GET.get('status')
+    return render(request, 'usuario/login.html', {'status': status})
+
+def validar_login(request):
+    email = request.POST.get('email')
+    senha = request.POST.get('senha')
+
+    senha = sha256(senha.encode()).hexdigest()
+
+    usuario = UsrCad.objects.filter(email = email).filter(senha = senha) #buscando do BD
+    if len(usuario) == 0: #se não existe usuario
+        return redirect('/usuario/inicio/?status=1')
+    elif len(usuario) > 0: #se existe usuario, pois nao existe repetido
+        request.session['usuario'] = usuario[0].id #armazena globalmente o ID do usuario
+        return redirect(f'/')
+
+    return HttpResponse(f"{email} {senha}")
+
+def sair(request):
+    request.session.flush()
+    return redirect('/usuario/inicio/')
+#categorias
 class SelecionaCategoria(CreateView):
     model = Categoria
     fields = '__all__'
@@ -76,6 +135,34 @@ class CompDetalheAP(DetailView):
 class CompDetalheBP(DetailView):
     model = BancaPermanente
 #Cadastro de Aluno
+"""class CadastroAlunoUsuario(CreateView):
+    model = UsrCad
+    fields = '__all__'
+    template_name = 'usuario/form.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = 'Cadastro de Acesso de Usuário'
+        context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
+        context['botaoC'] = 'Avançar'
+        context['botaoB'] = 'Limpar'
+        context['botaoA'] = 'Cancelar'
+        return context
+    success_url = '/usuario/aluno/'
+"""
+"""class UsrLog(CreateView):
+    model = UsrLog
+    fields = '__all__'
+    template_name = 'usuario/form.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = 'Acesso de Usuário'
+        context['texto1'] = 'Preencha seus dadospara acessar seu perfil'
+        context['botaoC'] = 'Acessar'
+        #context['botaoB'] = 'Limpar'
+        context['botaoA'] = 'Cancelar'
+        return context
+    success_url = '/'"""
+
 class DadosAluno(CreateView):
     model = AlunoDados
     fields = '__all__'#['nome','snome']
@@ -183,7 +270,7 @@ class Saude(CreateView):
 
 class Social(CreateView):
     model = Social
-    fields = ['bcp','pbf','pbt','peti']
+    fields = '__all__'
     template_name = 'usuario/form.html'
 
     def get_context_data(self, *args, **kwargs):
@@ -238,76 +325,7 @@ class Imagem(CreateView):
         context['botaoB'] = 'Limpar'
         context['botaoA'] = 'Cancelar'
         return context
-    success_url = '/usuario/cadastro/'
+    success_url = '/usuario/sucesso/'
 
 class Sucesso(TemplateView):
     template_name = 'usuario/sucesso.html'
-
-class Login(CreateView):
-    model = UsrLog
-    fields = '__all__'
-    template_name = 'usuario/form.html'
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context['titulo'] = 'Acesso'
-        #context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
-        context['botaoC'] = 'Avançar'
-        context['botaoB'] = 'Limpar'
-        context['botaoA'] = 'Cadastro'
-        return context
-    def valida_login(request):
-        email = request.POST.get('email')
-        senha = request.POST.get('senha')
-        senha = sha256(senha.encode()).hexdigest()#criptografa em sha
-
-        usuario = Usuario.objects.filter(email = email).filter(senha = senha)
-
-        if len(usuario) == 0:#caso o aluno nao exista
-            return redirect('/usuario/login/?status=1')
-        elif len(usuario) > 0:#caso o aluno esteja cadastrado
-            request.session['usuario'] = usuario[0].id
-            return redirect(f"/livro/home/?id_usuario={request.session['usuario']}")
-
-        return HttpResponse(f'{email} {senha}')
-
-class Cadastro_de_Usuario(CreateView):
-    model = UsrCad
-    fields = '__all__'
-    template_name = 'usuario/form.html'
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context['titulo'] = 'Cadastro de Acesso ao Usuário'
-        #context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
-        context['botaoC'] = 'Avançar'
-        context['botaoB'] = 'Limpar'
-        context['botaoA'] = 'Logar'
-        return context
-
-    def valida_cadastro(request):
-        usuario = request.POST.get('usuario')
-        email = request.POST.get('email')
-        senha = request.POST.get('senha')
-
-        usuario = UsrCad.objects.filter(email = email)#busca dados do usuario
-
-        if len(usuario.strip()) == 0 or len(email.strip()) == 0:#testa espaço em branco e remove
-            return redirect('/usuario/cadastro/?status=1')
-
-        if len(senha) < 8:
-            return redirect('/usuario/cadastro/?status=2')
-
-        if len(usuario) > 0:
-            return redirect('/usuario/cadastro/?status=3')
-        try:
-            senha = sha256(senha.encode()).hexdigest()
-            usuario = UsrCad(usuario = usuario, senha = senha,email = email)
-            usuario.save()
-            return redirect('/usuario/cadastro/?status=0')
-        except:
-            return redirect('/usuario/cadastro/?status=4')
-
-    success_url = '/usuario/aluno/'
-
-def sair(request):
-    request.session.flush()
-    return redirect('/usuario/login/')
