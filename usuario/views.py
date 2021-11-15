@@ -67,7 +67,7 @@ def validar_login(request):
         return redirect('/usuario/inicio/?status=1')
     elif len(usuario) > 0: #se existe usuario, pois nao existe repetido
         request.session['usuario'] = usuario[0].id #armazena globalmente o ID do usuario
-        return redirect(f'/')
+        return redirect(f'/perfil/inicio/')
 
     return HttpResponse(f"{email} {senha}")
 
