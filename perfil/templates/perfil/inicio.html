@@ -15,15 +15,44 @@
   <div class="avatar-nome">
     <p>{{usuario}}</p>
   </div>
+  <div class="card-matric">
+    <p>matric</p>
+  </div>
+  <div class="card-ano">
+    <p>ano</p>
+  </div>
   <div class="card-menu">
-    <div class="card-matric">
-      <p>matric</p>
-    </div>
-    <div class="card-ano">
-      <p>ano</p>
-    </div>
     <div class="card-menu">
-      <p>menu</p>
+      <div class="iagenda">
+        <a href="/agenda/agendar">
+          <img src="{% static 'img/scola_png/agenda.png' %}" width="75px" height="75px"><br></a>
+        <label>Agenda</label>
+      </div>
+      <div class="iagendador">
+        <a href="/agenda/list">
+          <img src="{% static 'img/scola_png/agendar.png' %}"  width="75px" height="75px"><br></a>
+        <label>Agendamento</label>
+      </div>
+      <div class="iprova">
+        <a href="/avalia/avaluno">
+          <img src="{% static 'img/scola_png/001-exam.png' %}"  width="75px" height="75px"><br></a>
+        <label>Provas e Exercícios</label>
+      </div>
+      <div class="inotas">
+        <a href="/avalia/notas">
+          <img src="{% static 'img/scola_png/Project_55-09.jpg' %}"  width="75px" height="75px"><br></a>
+        <label>Notas</label>
+      </div>
+      <div class="imaterial">
+        <a href="/">
+          <img src="{% static 'img/scola_png/g5110.png' %}"  width="75px" height="75px"><br></a>
+        <label>Módulos e Exercícios</label>
+      </div>
+      <div class="iid">
+        <a href="/">
+          <img src="{% static 'img/scola_png/014-identification.png' %}"  width="75px" height="75px"><br></a>
+        <label for="">Identificador</label>
+      </div>
     </div>
   </div>
 </div>
