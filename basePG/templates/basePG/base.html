@@ -24,7 +24,7 @@
           <h1>Centro de Educação em EJA Luiz Octávio Araujo</h1>
         </div>
         <div class="usr">
-          <p>Bem-Vindo(a) {{request.user}}</p>
+          <p>Bem-Vindo(a) {{usuario}}</p>
         </div>
       </div>
       <div class="barra-menu">
@@ -36,7 +36,7 @@
               <li><a href="/perfil/inicio">Perfil</a></li>
               <li><a href="/agenda/agenda1">Agendar</a></li>
               <li class="separador"></li>
-              <li><a href="/usuario/logout">Sair</a></li>
+              <li><a href="/usuario/sair">Sair</a></li>
               <li class="separador"></li>
               <li><a href="/usuario/password/change">Trocar Senha</a></li>
               {% else %}

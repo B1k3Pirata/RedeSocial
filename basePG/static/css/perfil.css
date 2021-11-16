@@ -1,107 +1,50 @@
-@media (min-width: 100px) and (max-width:360px){
-  .secao{
-    background-color: blue;
-    width: 100%;
+@charset "UTF-8";
+@media (min-width: 200px) and (max-width:400px){
+  .card{
+    background: gray;
+    width: auto;
+    height: auto;
+    top: 15px;
     display: grid;
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: 1fr;
     grid-template-areas:
-    'fp'
-    'dd'
-    'ct'
-    'ii'
-    }
-    /*area de dados*/
-  .secao > .dados{
-      grid-area: dd;
-      background-color: grey;
-      width: 100%;
-      height: auto;
-      display: grid;
-      grid-template-columns: repeat(1,1fr);
-      grid-template-areas:
-      'fp'
-      'p'
-      'ag'
-      'av'
-    }
-
-  /*foto usuario*/
-  .secao > .dados > .foto-p{
-    grid-area: fp;
-    background-color: #D3D3D3; /*lightgrey*/
-    height: 90px;
-    width: 90px;
-    border-radius: 100%;
-    margin-left: 100px;
-    margin-top: -20px;
-    position: relative;
-    /*z-index: 2;*/
+    'aa'
+    'an'
+    'cm'
   }
-  .secao > .dados > .foto-p > #avatar{
-    height: 90px;
-    width: 90px;
-    left: -17px;
-    border-radius: 100%;
-    position: relative;
-  }
-
-  .secao > .dados > .pessoal{
-    grid-area: p;
-    background-color: green;
-    position: relative;
+  .card-menu{
+    grid-area: cm;
+    background-color: purple;
     width: 100%;
-    height: 100%;
-    /*z-index: 1;*/
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    justify-content: center;
-    grid-template-areas:
-    'n s'
-    'm d'
-  }
-  .secao > .dados > .pessoal > .nome{
-    grid-area: n;
-    font-family: 'ubuntu';
-    font-size: 16px;
-    color: white;
-  }
-  .secao > .dados > .pessoal > .snome{
-    grid-area: s;
-    font-family: 'ubuntu';
-    font-size: 16px;
-    color: white;
-  }
-  .secao > .dados > .pessoal > .matr{
-    grid-area: m;
-    font-family: 'ubuntu';
-    font-size: 16px;
-    color: white;
-  }
-  .secao > .dados > .pessoal > .det{
-    grid-area: d;
-    font-family: 'ubuntu';
-    font-size: 16px;
-    color: white;
-  }
-
-  /* card */
-  .cartao{
-    grid-area: ct;
+    height: 50%;
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
     grid-template-areas:
-    'ag ag2 pv'
-    'nt mt id'
+    'age avd atd'
+    'atm ava mat'
   }
-  .iagenda {grid-area: ag;}
-  .iagendador {grid-area: ag2;}
-  .iprova {grid-area: pv;}
-  .inotas {grid-area: nt;}
-  .imaterial {grid-area: mt;}
-  .iid {grid-area: id;}
+  .arredonda{
+    grid-area: aa;
+    border-radius: 50%;$arredonda a imagem
+    width: 50%;
+    position: absolute;
+    top: 20.5px;
+    left: 100px;
+  }
+  .avatar-nome{
+    grid-area: an;
+    background-color: yellow;
+  }
+  .avatar-nome > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
 }
 
-@media (min-width: 360px) and (max-width:600px){
+/*@media (min-width: 360px) and (max-width:600px){
 
 }
 
@@ -115,4 +58,4 @@
 
 @media (min-width: 1200px){
 
-}
+}*/

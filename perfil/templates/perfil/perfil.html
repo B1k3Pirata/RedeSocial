@@ -6,30 +6,22 @@
 <div class="secao">
   <div class="dados">
     <div class="foto-p">
-      {% if avatar %}
-        {% for avatar in avatar %}
-          <!--{{avatar.avatar}}-->
-          <img id='avatar' src="{{avatar.avatar.url}}" alt="">
-        {% endfor %}
-      {% else %}
-        <img id="avatar" alt="avatar" src="{% static 'img/avatar1.png' %}">
-      {% endif %}
+      <img id='avatar' src="{{avatar}}" alt="">
+
     </div>
     <div class="pessoal">
-      {% for a in pessoal %}
       <div class="nome">
-        <p id="nome">{{a.nome}}</p>
+        <p id="nome">{{nome}}</p>
       </div>
       <div class="snome">
-        <p id="snome">{{a.snome}}</p>
+        <p id="snome">{{snome}}</p>
       </div>
       <div class="matr">
-        <p id="matr">{{a.matricula}}</p>
+        <p id="matr">{{matricula}}</p>
       </div>
       <div class="det">
-        <p id="det">{{a.detalhes}}</p>
+        <p id="det">{{detalhes}}</p>
       </div>
-      {% endfor %}
     </div>
     <div class="cartao">
       <div class="iagenda">

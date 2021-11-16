@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 app_name='basePG'
 
 class Base(TemplateView):
+    
     template_name = 'basePG/base.html'
 
 #@login_required

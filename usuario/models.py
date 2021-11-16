@@ -5,14 +5,6 @@ import uuid
 from datetime import date, time, datetime
 
 # Create your models here.
-class Categoria(models.Model):
-    quest = [('CBP','Candidato a Banca Permanente'),('CAP','Candidato ao Atendimento Personalizado')]
-    pmatr = models.CharField(max_length=4,choices=quest, verbose_name='Selecione Candidatura')
-    class Meta:
-        verbose_name = 'SelecionaCategoria'
-
-    def __str__(self) -> str:
-        return f"{self.pmatr}"
 
 #candidato a banca Permanente
 class BancaPermanente(models.Model):
@@ -56,16 +48,6 @@ class UsrCad(models.Model):
     def __str__(self) -> str:
         return self.nome
 
-class UsrLog(models.Model):
-    nome = models.CharField(max_length=100)
-    senha = models.CharField(max_length=64)
-
-    class Meta:
-        verbose_name = 'UsrLog'
-
-    def __str__(self) -> str:
-        return f"{self.nome}{self.nome}"
-        
 #dados do aluno
 class AlunoDados(models.Model):
     usuario = models.ForeignKey(UsrCad, on_delete=models.CASCADE)
@@ -437,13 +419,13 @@ class Proc(models.Model):
 
 class Imagens(models.Model):
     usuario = models.ForeignKey(UsrCad, null=True, blank=True, on_delete=models.CASCADE)
-    avatar = models.FileField(upload_to='avatar', blank=True)
-    dochist = models.FileField(upload_to='historico', blank=True)
-    docRG = models.FileField(upload_to='rg', blank=True)
-    docRG2 = models.FileField(upload_to='rg', blank=True)
-    docCPF = models.FileField(upload_to='cpf',blank=True)
-    docRes = models.FileField(upload_to='comprovaResid', blank=True)
-    docCert = models.FileField(upload_to='certificaFund', blank=True)
+    avatar = models.ImageField(upload_to='avatar', blank=True)
+    dochist = models.ImageField(upload_to='historico', blank=True)
+    docRG = models.ImageField(upload_to='rg', blank=True)
+    docRG2 = models.ImageField(upload_to='rg', blank=True)
+    docCPF = models.ImageField(upload_to='cpf',blank=True)
+    docRes = models.ImageField(upload_to='comprovaResid', blank=True)
+    docCert = models.ImageField(upload_to='certificaFund', blank=True)
 
     class Meta:
         verbose_name = 'Imagens'

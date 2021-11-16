@@ -45,14 +45,13 @@ def valida_cadastro(request):
         senha = sha256(senha.encode()).hexdigest()
         usuario = UsrCad(nome=nome,senha=senha,email=email)
         usuario.save()
-        return redirect('/usuario/cadastro/?status=0')
+        return redirect('/usuario/aluno/?status=0')
     except: #caso Contrario sinaliza como erro do sistema
         return redirect('/usuario/cadastro/?status=4')
 
 def login(request):
-    def login(request):
-        if request.session.get('usuario'):
-            return redirect('/usuario/inicio/')
+    if request.session.get('usuario'):
+        return redirect('/usuario/inicio/')
     status = request.GET.get('status')
     return render(request, 'usuario/login.html', {'status': status})
 
@@ -68,74 +67,18 @@ def validar_login(request):
     elif len(usuario) > 0: #se existe usuario, pois nao existe repetido
         request.session['usuario'] = usuario[0].id #armazena globalmente o ID do usuario
         return redirect(f'/perfil/inicio/')
-
+        request.session["usuario"]=usuario[0].id
+        return redirect(f"/perfil/inicio/")
     return HttpResponse(f"{email} {senha}")
 
 def sair(request):
     request.session.flush()
-    return redirect('/usuario/inicio/')
+    return redirect('/usuario/login/')
+
 #categorias
-class SelecionaCategoria(CreateView):
-    model = Categoria
-    fields = '__all__'
-    template_name = 'usuario/form.html'
 
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context['titulo'] = 'Pré-Cadastro de Usuário'
-        context['texto1'] = 'Selecione uma opção de pré-cadastro'
-        #context['botaoD'] = 'Aluno Novo'
-        context['botaoC'] = 'Avançar'
-        #context['botaoB'] = 'Limpar'
-        context['botaoA'] = 'Cancelar'
-        return context
-    success_url = '/usuario/dados/'
-
-class BP(CreateView):
-    model = BancaPermanente
-    fields = '__all__'
-    template_name = 'usuario/form.html'
-
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context['titulo'] = 'Pré-Cadastro de Usuário'
-        context['texto1'] = 'Insira seus dados para o pré-cadastro'
-        #context['botaoD'] = 'Aluno Novo'
-        context['botaoC'] = 'Avançar'
-        #context['botaoB'] = 'Limpar'
-        context['botaoA'] = 'Cancelar'
-        return context
-    success_url = '/usuario/dados/'
-
-class AP(CreateView):
-    model = AtendimentoPersonalizado
-    fields = '__all__'
-    template_name = 'usuario/form.html'
-
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context['titulo'] = 'Pré-Cadastro de Usuário'
-        context['texto1'] = 'Insira seus dados para o pré-cadastro'
-        #context['botaoD'] = 'Aluno Novo'
-        context['botaoC'] = 'Avançar'
-        #context['botaoB'] = 'Limpar'
-        context['botaoA'] = 'Cancelar'
-        return context
-    success_url = '/usuario/dados/'
-
-class GeraComprovante_AP(ListView):
-    model = AtendimentoPersonalizado
-
-class GeraComprovante_BP(ListView):
-    model = BancaPermanente
-
-class CompDetalheAP(DetailView):
-    model = AtendimentoPersonalizado
-
-class CompDetalheBP(DetailView):
-    model = BancaPermanente
 #Cadastro de Aluno
-"""class CadastroAlunoUsuario(CreateView):
+class CadastroAlunoUsuario(CreateView):
     model = UsrCad
     fields = '__all__'
     template_name = 'usuario/form.html'
@@ -148,20 +91,6 @@ class CompDetalheBP(DetailView):
         context['botaoA'] = 'Cancelar'
         return context
     success_url = '/usuario/aluno/'
-"""
-"""class UsrLog(CreateView):
-    model = UsrLog
-    fields = '__all__'
-    template_name = 'usuario/form.html'
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context['titulo'] = 'Acesso de Usuário'
-        context['texto1'] = 'Preencha seus dadospara acessar seu perfil'
-        context['botaoC'] = 'Acessar'
-        #context['botaoB'] = 'Limpar'
-        context['botaoA'] = 'Cancelar'
-        return context
-    success_url = '/'"""
 
 class DadosAluno(CreateView):
     model = AlunoDados
