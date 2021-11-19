@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 import uuid
 from datetime import date, time, datetime
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
@@ -47,6 +48,18 @@ class UsrCad(models.Model):
 
     def __str__(self) -> str:
         return self.nome
+
+#dados educacionais
+class EduCad(models.Model):
+    usuario = models.ForeignKey(UsrCad, on_delete=models.CASCADE)
+    nvl = [('EF','fundamental'),('EM','Médio')]
+    nivel = models.CharField(choices=nvl, max_length=255, verbose_name='nível pretendido')
+    
+    class Meta:
+        verbose_name = 'EduCad'
+
+    def __str__(self) -> str:
+        return f'{self.nivel}{self.ano}'
 
 #dados do aluno
 class AlunoDados(models.Model):

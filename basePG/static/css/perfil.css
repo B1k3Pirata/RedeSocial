@@ -1,26 +1,27 @@
 @charset "UTF-8";
 @media (min-width: 200px) and (max-width:400px){
-  .card{
+  .avatar{
     background: gray;
     width: auto;
     height: auto;
-    top: 15px;
+    margin-top: 35px;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
     grid-template-areas:
-    'aa aa'
-    'an an'
-    'mt ay'
-    'cm cm'
+    'aa an an'
+    'aa mt ay'
   }
-
-  .arredonda{
+  .avatar > .aavatar{
     grid-area: aa;
+    background-color: green;
+  }
+  .aavatar > .arredonda{
     border-radius: 50%;$arredonda a imagem
-    width: 50%;
+    width: 75%;
     position: absolute;
-    top: 20.5px;
-    left: 100px;
+    margin-top: 2.5px;
+    left: 19.5px;
   }
   .avatar-nome{
     grid-area: an;
@@ -53,6 +54,17 @@
     text-align: center;
   }
   /* card */
+  .card{
+    background: gray;
+    width: auto;
+    height: auto;
+    top: 15px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+    'cm cm cm'
+  }
   .card-menu{
     grid-area: cm;
     background-color: skyblue;

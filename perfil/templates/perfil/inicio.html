@@ -8,19 +8,21 @@
 
 {% block conteudo %}
 {% if request.session.usuario %}
-<div class="card">
-  <div class="avatar">
-    <img class="arredonda" id='avatar' src="{{avatar.url}}" width="40px" height="40px">
+<div class="avatar">
+  <div class="aavatar">
+    <img class="arredonda" id='avatar' src="{{avatar.url}}" width="80px" height="80px">
   </div>
   <div class="avatar-nome">
     <p>{{usuario}}</p>
   </div>
   <div class="card-matric">
-    <p>matric</p>
+    <p>{{matric}}</p>
   </div>
   <div class="card-ano">
-    <p>ano</p>
+    <p>{{ano}}</p>
   </div>
+</div>
+<div class="card">
   <div class="card-menu">
     <div class="card-menu">
       <div class="iagenda">
