@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
-import uuid
+import uuid, csv
+import pandas as pd
 from datetime import date, time, datetime
 from django.core.validators import MaxValueValidator, MinValueValidator
 
@@ -54,7 +55,10 @@ class EduCad(models.Model):
     usuario = models.ForeignKey(UsrCad, on_delete=models.CASCADE)
     nvl = [('EF','fundamental'),('EM','Médio')]
     nivel = models.CharField(choices=nvl, max_length=255, verbose_name='nível pretendido')
-    
+    """
+    an = i"""
+    anos = [()]
+    ano = models.CharField(max_length=4)
     class Meta:
         verbose_name = 'EduCad'
 

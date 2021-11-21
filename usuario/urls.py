@@ -17,6 +17,7 @@ urlpatterns = [
     #path('gcomp/', views.GeraComprovante.as_view(), name='comprovante'),
     #cadastro
     #path('usrcad/', views.Cadastro_de_Usuario.as_view(), name='cadastro_de_usuario'),
+    path('educa/', views.EducacaoCad.as_view(), name='educa'),
     path('aluno/', views.DadosAluno.as_view(), name='aluno'),
     path('docs/', Parentesco.as_view(), name='documentos_pessoais'),
     path('docs2/', DocP.as_view(), name='documentos_pessoais2'),
