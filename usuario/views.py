@@ -90,7 +90,7 @@ class CadastroAlunoUsuario(CreateView):
         context['botaoB'] = 'Limpar'
         context['botaoA'] = 'Cancelar'
         return context
-    success_url = '/usuario/aluno/'
+    success_url = '/usuario/educa/'
 
 class EducacaoCad(CreateView):
     model = EduCad

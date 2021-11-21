@@ -14,9 +14,7 @@ urlpatterns = [
     path('sair/', views.sair, name='sair'),
     #pre-cadastro
     path('inicio/', views.inicio, name='inicio'),
-    #path('gcomp/', views.GeraComprovante.as_view(), name='comprovante'),
-    #cadastro
-    #path('usrcad/', views.Cadastro_de_Usuario.as_view(), name='cadastro_de_usuario'),
+    
     path('educa/', views.EducacaoCad.as_view(), name='educa'),
     path('aluno/', views.DadosAluno.as_view(), name='aluno'),
     path('docs/', Parentesco.as_view(), name='documentos_pessoais'),
