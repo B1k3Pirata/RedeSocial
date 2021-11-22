@@ -45,7 +45,7 @@ def valida_cadastro(request):
         senha = sha256(senha.encode()).hexdigest()
         usuario = UsrCad(nome=nome,senha=senha,email=email)
         usuario.save()
-        return redirect('/usuario/aluno/?status=0')
+        return redirect('/usuario/educa/?status=0')
     except: #caso Contrario sinaliza como erro do sistema
         return redirect('/usuario/cadastro/?status=4')
 

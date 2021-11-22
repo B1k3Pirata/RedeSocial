@@ -55,12 +55,13 @@ class EduCad(models.Model):
     usuario = models.ForeignKey(UsrCad, on_delete=models.CASCADE)
     nvl = [('EF','fundamental'),('EM','Médio')]
     nivel = models.CharField(choices=nvl, max_length=255, verbose_name='nível pretendido')
+    matric = models.CharField(max_length=4, verbose_name='matricula')
     ano = models.CharField(max_length=4)
     class Meta:
         verbose_name = 'EduCad'
 
     def __str__(self) -> str:
-        return f'{self.nivel}{self.ano}'
+        return f'{self.nivel}{sel.matric}{self.ano}'
 
 #dados do aluno
 class AlunoDados(models.Model):

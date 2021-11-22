@@ -19,10 +19,11 @@ def inicioperfil(request):
     if request.session.get('usuario'):
         usuario = UsrCad.objects.get(id = request.session['usuario']).nome
         avatar  = Imagens.objects.get(id=request.session['usuario']).avatar
+        nivel   = EduCad.objects.get(id = request.session['usuario']).nivel
         matric  = EduCad.objects.get(id = request.session['usuario']).matric
         ano     = EduCad.objects.get(id=request.session['usuario']).ano
         #return HttpResponse(f'Olá {usuario}{avatar}')
-        return render(request, 'perfil/inicio.html', {'usuario':usuario,'avatar':avatar,'matric':matric,'ano':ano})
+        return render(request, 'perfil/inicio.html', {'usuario':usuario,'avatar':avatar,'nivel':nivel,'matric':matric,'ano':ano})
     else:
         return redirect('/usuario/login/?status=2')
 

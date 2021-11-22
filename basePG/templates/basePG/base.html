@@ -31,26 +31,23 @@
         <div class="nav-ban">
           <nav>
             <ul class="menu">
-              {% if request.user.is_authenticated %}
-              <li><a href="/">inicio</a></li>
+              {% if request.session.usuario %}
+              <li><a href="/perfil/hist/">Histórico</a></li>
               <li><a href="/perfil/inicio">Perfil</a></li>
+              <li><a href="/agenda/agenda">Minha Agenda</a></li>
               <li><a href="/agenda/agenda1">Agendar</a></li>
-              <li class="separador"></li>
               <li><a href="/usuario/sair">Sair</a></li>
-              <li class="separador"></li>
               <li><a href="/usuario/password/change">Trocar Senha</a></li>
               {% else %}
               <li><a href="/">Inicio</a></li>
               <li><a href="#">Sobre</a></li>
-              <li><a href="/usuario/inicio">Cadastro</a></li>
+              <li><a href="/usuario/cadastro">Cadastro</a></li>
               <li><a href="/usuario/login">Acesso</a></li>
               {% endif %}
             </ul>
           </nav>
         </div>
-        <!--<div class="logo">
-          <img class="logo" src="{% static 'img/ceeja_img1.png' %}" alt="logo">
-        </div>-->
+        
       </div>
       <div class="corpo-noticia">
         {% block conteudo %}
