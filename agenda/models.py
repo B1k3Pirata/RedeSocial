@@ -5,7 +5,19 @@ app_name = 'agenda'
 class AgendamentoInicio(models.Model):
     pass
 
+class Nivel(models.Model):
+    opt = [
+        ('Fd', 'Fundamental'),('Md','Médio')
+    ]
+    opcao = models.CharField(max_length=11, choices=opt, verbose_name='Selecione nível')
+    class Meta:
+        verbose_name = 'Disciplinas'
+
+    def __str__(self) -> str:
+        return f"{self.opcao}"
+
 class Disciplinas(models.Model):
+    nivel = models.ForeignKey(Nivel, on_delete=models.CASCADE)
     discF = [
         ('Selecione','Selecione'),
         ('Artes','Artes'),
@@ -32,6 +44,7 @@ class Disciplinas(models.Model):
         ('Quimica','Quimica'),
         ('Sociologia','Sociologia'),
         ]
+
     dF = models.CharField(max_length=20,choices=discF,verbose_name='Disciplinas do Fundamental')
     dM = models.CharField(max_length=20,choices=discM,verbose_name='Disciplinas do Médio')
 
@@ -42,7 +55,7 @@ class Disciplinas(models.Model):
         return f"{self.dF}{self.dM}"
 
 class Professor(models.Model):
-    disciplina = models.ForeignKey('Disciplinas',verbose_name='disciplinas', on_delete=models.CASCADE)
+    nivel = models.ForeignKey(Nivel, on_delete=models.CASCADE)
     profF = []
     profM = []
     profF = models.CharField(max_length=20,choices=profF,verbose_name='professores Fundamental(as)')

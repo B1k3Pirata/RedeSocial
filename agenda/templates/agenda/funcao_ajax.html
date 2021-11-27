@@ -1,0 +1,4 @@
+<option value="" selected>Selecione</option>
+{% for disciplina in disciplina %}
+  <option value="{{disciplina.funcao.id}}">{{disciplina.funcao.nome}}</option>
+{% endfor %}

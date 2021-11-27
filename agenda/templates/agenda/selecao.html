@@ -1,0 +1,86 @@
+{% extends 'basePG/base.html' %}
+{% load static %}
+
+{% block css %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block conteudo %}
+<form id="form" name="form" class="form" action="index.html" method="post" data-funcoes-url="/agenda/load_funcoes/" data-grupos-url="/agenda/load_grupos/">
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="nivel">Nível</label>
+    <div class="col-sm-8">
+      <select class="" name="nivel" required id="nivel">
+        <option value="" selected>Selecione</option>
+        <option value="1" selected>Fundamental</option>
+        <option value="2" selected>Médio</option>
+      </select>
+      <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="mymodal" name="button">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>-->
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="nivel">Nível</label>
+    <div class="col-sm-8">
+      <select class="" name="disciplina" required id="disciplina">
+        <option value="" selected>Selecione</option>
+        {% for disciplina in disciplina %}
+          <option value="{{disciplina.id}}">{{disciplina.nome}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="nivel">Nível</label>
+    <div class="col-sm-8">
+      <select class="" name="professor" required id="professor">
+        <option value="" selected>Selecione</option>
+        {% for professor in professor %}
+          <option value="{{professor.id}}">{{professor.nome}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</form>
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- injetando javascript -->
+<script type="text/javascript">
+  $("#nivel_id").change(function(){
+    const url = $('#form').attr("data-funcoes-url");
+    nivelID = $(this).val();
+    $.ajax({
+      url : url,
+      data: {'nivel_id': nivelID},
+      success: function(data){
+        $("#disciplina_id").html(data);
+      }
+    });
+    }
+  );
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3/js/bootstrap.min.js"></script>
+{% endblock %}
