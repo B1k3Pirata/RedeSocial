@@ -8,13 +8,14 @@ from django.http import HttpResponse
 
 from usuario.models import *
 
+
 #--CADASTRO DE DADOS DE ACESSO
 from django.contrib.auth.models import User
 #from .forms import *
 
 app_name = 'perfil'
 
-
+#aluno
 def inicioperfil(request):
     if request.session.get('usuario'):
         usuario = UsrCad.objects.get(id = request.session['usuario']).nome

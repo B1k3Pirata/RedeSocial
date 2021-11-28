@@ -12,4 +12,5 @@ urlpatterns = [
     path('usuario/', include('usuario.urls', namespace='usuario')),
     path('agenda/', include('agenda.urls', namespace='agenda')),
     path('perfil/', include('perfil.urls', namespace='perfil')),
+    path('usuario_prof/', include('usuario_prof.urls', namespace='usuarioprof')),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#para fornecer arquivos estáticos

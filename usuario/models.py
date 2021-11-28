@@ -8,35 +8,6 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
-#candidato a banca Permanente
-class BancaPermanente(models.Model):
-    nome = models.CharField(max_length=255, verbose_name='nome completo')
-    snome = models.CharField(max_length=255, verbose_name='sobrenome completo')
-    dataCad = models.DateTimeField(auto_now_add=True)
-    slug = models.SlugField(max_length=255, unique=True)
-    controle = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    autor = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = 'BancaPermanente'
-
-    def __str__(self) -> str:
-        return f"{self.nome}"
-
-#candidato/aluno
-class AtendimentoPersonalizado(models.Model):
-    nome = models.CharField(max_length=255, verbose_name='nome completo')
-    snome = models.CharField(max_length=255, verbose_name='sobrenome completo')
-    dataCad = models.DateTimeField(auto_now_add=True)
-    slug = models.SlugField(max_length=255, unique=True)
-    controle = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    autor = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = 'AtendimentoPersonalizado'
-
-    def __str__(self) -> str:
-        return f"{self.nome}"
 
 #cadastro de aluno/usuario
 class UsrCad(models.Model):

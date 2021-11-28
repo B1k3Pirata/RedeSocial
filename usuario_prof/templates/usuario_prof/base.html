@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% block css %}
+    {% endblock %}
+    <title></title>
+  </head>
+  <body>
+    <div class="banner">
+      {% block banner %}
+      {% endblock %}
+    </div>
+    <div class="corpo">
+      {% block conteudo %}
+
+      {% endblock %}
+    </div>
+    <div class="lateral">
+      {% block lateral %}
+      {% endblock %}
+    </div>
+    <div class="rodape">
+      {% block rodape %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

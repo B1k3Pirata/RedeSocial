@@ -1,0 +1,22 @@
+{% extends 'usuario_prof/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static './css/perfil.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+{% if request.session.usuario %}
+<div class="avatar">
+  <div class="aavatar">
+    <img class="arredonda" id='avatar' src="{{avatar.url}}" width="80px" height="80px">
+  </div>
+  <div class="avatar-nome">
+    <p>{{usuario}} {{usuarios}}</p>
+  </div>
+  <div class="card-matric">
+    <p>{{nivel}}-{{disc}}</p>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -53,7 +53,7 @@ def login(request):
     if request.session.get('usuario'):
         return redirect('/usuario/inicio/')
     status = request.GET.get('status')
-    return render(request, 'usuario/login.html', {'status': status})
+    return render(request, 'usuario_prof/login.html', {'status': status})
 
 def validar_login(request):
     email = request.POST.get('email')

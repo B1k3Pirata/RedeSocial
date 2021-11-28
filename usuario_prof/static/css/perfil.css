@@ -1,0 +1,108 @@
+@charset "UTF-8";
+@media (min-width: 200px) and (max-width:400px){
+  .avatar{
+    background: gray;
+    width: auto;
+    height: auto;
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+    'aa an an'
+    'aa mt ay'
+  }
+  .avatar > .aavatar{
+    grid-area: aa;
+    background-color: green;
+  }
+  .aavatar > .arredonda{
+    border-radius: 50%;$arredonda a imagem
+    width: 75%;
+    position: absolute;
+    margin-top: 2.5px;
+    left: 19.5px;
+  }
+  .avatar-nome{
+    grid-area: an;
+    background-color: yellow;
+  }
+  .avatar-nome > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+  .card-matric{
+    grid-area: mt;
+    background-color: orange;
+  }
+  .card-matric > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+  .card-ano{
+    grid-area: ay;
+    background-color: OrangeRed;
+  }
+  .card-ano > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+  /* card */
+  .card{
+    background: gray;
+    width: auto;
+    height: auto;
+    top: 15px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+    'cm cm cm'
+  }
+  .card-menu{
+    grid-area: cm;
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas:
+    'ag ag2 pv'
+    'nt mt id'
+  }
+  .card-menu > .iagenda, .iagendador, .iprova, .inotas, .imaterial, .iid > label{
+    font-family: 'Ubuntu';
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .card-menu > .iagenda, .iagendador, .iprova, .inotas, .imaterial, .iid{
+    left: -410px;
+  }
+  .iagenda {grid-area: ag;}
+  .iagendador {grid-area: ag2;}
+  .iprova {grid-area: pv;}
+  .inotas {grid-area: nt;}
+  .imaterial {grid-area: mt;}
+  .iid {grid-area: id;}
+}
+
+/*@media (min-width: 360px) and (max-width:600px){
+
+}
+
+@media (min-width: 600px) and (max-width:800px){
+
+}
+
+@media (min-width: 800px) and (max-width: 1200px){
+
+}
+
+@media (min-width: 1200px){
+
+}*/
