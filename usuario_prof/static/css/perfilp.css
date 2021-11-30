@@ -1,1 +1,236 @@
 @charset "UTF-8";
+
+@media (min-width: 100px) and (min-width: 200px){
+  .avatar{
+    width: auto;
+    height: auto;
+    margin: 2.5px;
+    padding: 1.5px;
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+    "aa aa aa "
+    "an an an"
+    "nv nv at"
+  }
+  .avatar > .aavatar {
+    grid-area: aa;
+  }
+  .avatar > .aavatar > .arredonda{
+    border-radius: 50%; #arredonda a imagem
+    width: 75%;
+    position: absolute;
+    margin-top: 5.5px;
+    left: 7.5px;
+    border: double thick; #borda dupla
+  }
+  .avatar-nome{
+    grid-area: an;
+    background-color: yellow;
+  }
+  .avatar-nome > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+  .card-matric{
+    grid-area: nv;
+    background-color: orange;
+  }
+  .card-matric > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+  .card-turno{
+    grid-area: at;
+    background-color: OrangeRed;
+  }
+  .card-turno > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+}
+
+@media (min-width: 200px) and (min-width: 600px){
+  .avatar{
+    width: auto;
+    height: auto;
+    margin: 2.5px;
+    padding: 1.5px;
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+    "aa aa aa "
+    "an an an"
+    "nv nv at"
+  }
+  .avatar > .aavatar {
+    grid-area: aa;
+  }
+
+  .avatar > .aavatar > .arredonda{
+    border-radius: 50%; #arredonda a imagem
+    width: 75%;
+    position: absolute;
+    margin-top: -75.5px;
+    left: 147.5px;
+    border: double thick; #borda dupla
+  }
+  .avatar-nome{
+    grid-area: an;
+    background-color: yellow;
+  }
+  .avatar-nome > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+  .card-matric{
+    grid-area: nv;
+    background-color: orange;
+  }
+  .card-matric > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+  .card-turno{
+    grid-area: at;
+    background-color: OrangeRed;
+  }
+  .card-turno > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+}
+
+@media (min-width: 600px) and (min-width: 1200px){
+  .avatar{
+    width: auto;
+    height: auto;
+    margin: 2.5px;
+    padding: 1.5px;
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+    "aa aa aa "
+    "an an an"
+    "nv nv at"
+  }
+  .avatar > .aavatar {
+    grid-area: aa;
+  }
+
+  .avatar > .aavatar > .arredonda{
+    border-radius: 50%; #arredonda a imagem
+    width: 75%;
+    position: absolute;
+    margin-top: -75.5px;
+    left: 147.5px;
+    border: double thick; #borda dupla
+  }
+  .avatar-nome{
+    grid-area: an;
+    background-color: yellow;
+  }
+  .avatar-nome > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+  .card-matric{
+    grid-area: nv;
+    background-color: orange;
+  }
+  .card-matric > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+  .card-turno{
+    grid-area: at;
+    background-color: OrangeRed;
+  }
+  .card-turno > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1200px){
+  .avatar{
+    width: auto;
+    height: auto;
+    margin: 2.5px;
+    padding: 1.5px;
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+    "aa aa aa "
+    "an an an"
+    "nv nv at"
+  }
+  .avatar > .aavatar {
+    grid-area: aa;
+  }
+
+  .avatar > .aavatar > .arredonda{
+    border-radius: 50%; #arredonda a imagem
+    width: 75%;
+    position: absolute;
+    margin-top: -75.5px;
+    left: 147.5px;
+    border: double thick; #borda dupla
+  }
+  .avatar-nome{
+    grid-area: an;
+    background-color: yellow;
+  }
+  .avatar-nome > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+  .card-matric{
+    grid-area: nv;
+    background-color: orange;
+  }
+  .card-matric > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+  .card-turno{
+    grid-area: at;
+    background-color: OrangeRed;
+  }
+  .card-turno > p{
+    font-family: 'ubuntu';
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+  }
+}

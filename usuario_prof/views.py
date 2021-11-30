@@ -91,6 +91,7 @@ def inicioperfildocente(request):
         avatar  = Docente.objects.get(id=request.session['usuario']).avatar
         nivel  = Docente.objects.get(id=request.session['usuario']).nivel
         disc  = Docente.objects.get(id=request.session['usuario']).disciplina
-        return render(request, 'usuario_prof/perfilp.html',{'usuario':usuario, 'usuarios':usuarios, 'avatar':avatar, 'nivel':nivel, 'disc':disc})
+        trn  = Docente.objects.get(id=request.session['usuario']).turno
+        return render(request, 'usuario_prof/perfilp.html',{'usuario':usuario, 'usuarios':usuarios, 'avatar':avatar, 'nivel':nivel, 'disc':disc,'trn':trn})
     else:
         return redirect('/usuario_prof/login/?status=2')
