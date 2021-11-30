@@ -1,28 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="pt-br" dir="ltr">
+<html lang="pt-br">
   <head>
     <meta charset="utf-8">
+    <!--<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">-->
     {% block css %}
     {% endblock %}
-    <title></title>
+    <link rel="stylesheet" href="{% static '/css/base_paginap.css' %}">
+    <title>Dashboard Profissional</title>
   </head>
   <body>
-    <div class="banner">
-      {% block banner %}
-      {% endblock %}
-    </div>
-    <div class="corpo">
-      {% block conteudo %}
+    <div class="grid-container">
+      <div class="banner">
+        <div class="tit-ban">
+          <h1>Centro de Educação em EJA Luiz Octávio Araujo</h1>
+        </div>
+        <div class="img-ban">
+          <img src="{% static 'img/iconeselogos/banner_bandeira3-2-1.png' %}">
+        </div>
+      </div>
+      <div class="barra-menu">
+        <h2>menu</h2>
+      </div>
+      <div class="corpo">
+        {% block conteudo %}
 
-      {% endblock %}
-    </div>
-    <div class="lateral">
-      {% block lateral %}
-      {% endblock %}
-    </div>
-    <div class="rodape">
-      {% block rodape %}
-      {% endblock %}
+        {% endblock %}
+      </div>
+      <div class="lateral">
+        <h1>lateral</h1>
+        {% block lateral %}
+        {% endblock %}
+      </div>
+      <div class="rodape">
+        <h2>rodape</h2>
+        {% block rodape %}
+        {% endblock %}
+      </div>
     </div>
   </body>
 </html>
