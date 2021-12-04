@@ -6,8 +6,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 app_name='basePG'
 
 class Base(TemplateView):
-    
     template_name = 'basePG/base.html'
+
+class Landing(TemplateView):
+    template_name = 'landing/landing.html'
 
 #@login_required
 def usuario(request):

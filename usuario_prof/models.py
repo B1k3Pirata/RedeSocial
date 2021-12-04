@@ -14,6 +14,8 @@ class Acesso(models.Model):
 
 class Docente(models.Model):
     acesso = models.ForeignKey(Acesso, on_delete=models.CASCADE)
+    gp = [('professor','professor'),('secretaria','secretaria'),('coordenacao','coordenacao')]
+    grupo = models.CharField(max_length=50, choices=gp)
     nome = models.CharField(max_length=30)
     snome = models.CharField(max_length=30, verbose_name='sobrenome')
     avatar =  models.ImageField(upload_to='avatar',blank=True)

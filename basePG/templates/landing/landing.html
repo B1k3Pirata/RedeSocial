@@ -1,0 +1,24 @@
+{%  extends 'basePG/base.html'%}
+{% load static%}
+
+{% block conteudo %}
+<div class="texto">
+  <h1>Bem-Vindo(a)</h1>
+  <p>Seja bem-vindo(a) ao CEEJA Belém 2.0</p>
+  <p>Aqui você poderá se cadastrar e ter acesso aos seus dados de forma remota e automática, que é a base da Informátca.</p>
+  <p>abaixo, selecione a sua opção de cadastro e acesso</p>
+</div>
+<div class="lança">
+  <div class="aluno">
+    <h3>Link de Acesso ao Sistema de Aluno</h3>
+    <a href="/usuario/login/">
+      <button type="button" class="btn btn-info btn-lg">Sistema Aluno</button></a>
+  </div>
+  <hr>
+  <div class="professor">
+    <h3>Link de Acesso ao Sistema de Aluno</h3>
+    <a href="/usuario_prof/login/">
+    <button type="button" class="btn btn-danger btn-lg">Sistema Professor</button></a>
+  </div>
+</div>
+{% endblock %}

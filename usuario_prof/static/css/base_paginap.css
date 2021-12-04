@@ -89,8 +89,82 @@ body{
     grid-template-rows: 1fr;
     grid-template-areas:
     'ba ba lt'
-    'bm cn lt'
+    'bm bm lt'
+    'cn cn lt'
     'rp rp rp'
+  }
+  .grid-container > .banner {
+    grid-area: ba;
+  }
+  .grid-container > .banner > .img-ban {
+    margin-top: -19.5px;
+    margin-left: -10px;
+  }
+  .grid-container > .banner > .img-ban > img{
+    width: 100%;
+    height: 75%;
+    position: relative;
+  }
+  .grid-container > .banner > .img-ban > .tit-ban > h1{
+    position: absolute;
+    top: 15px;
+    left: 90px;
+    width: 50%;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+    position: absolute;
+    text-shadow:
+    0 0 0.5em #111,
+    0 0 0.5em #87F,
+    0 0 0.5em #87F
+  }
+
+  .grid-container > .barra-menu {
+    grid-area: bm;
+    margin-top: -70px;
+    width: auto;
+    height: auto;
+    margin-left: 0px;
+    background-color: white;
+  }
+
+  .grid-container > .corpo {
+    grid-area: cn;
+    background-color: lightgrey;
+    margin: 10px;
+    padding: 0px;
+    margin-top: 10px;
+  }
+  .grid-container > .lateral {
+    grid-area: lt;
+    background-color: yellow;
+    margin: 5px;
+    padding: 2.5px;
+  }
+  .grid-container > .rodape {
+    grid-area: rp;
+    background-color: navy;
+    padding: 10px;
+  }
+  .grid-container > .rodape > h2 {
+    background-color: orange;
+  }
+}
+
+@media (min-width: 600px) and (min-width:800px){
+  .grid-container {
+    display: grid;
+    margin: 10px;
+    background-color: purple;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    'ba ba ba lt'
+    'bm bm bm lt'
+    'cn cn cn lt'
+    'rp rp rp rp'
   }
   .grid-container > .banner {
     grid-area: ba;
@@ -122,19 +196,18 @@ body{
 
   .grid-container > .barra-menu {
     grid-area: bm;
-    margin-top: -70px;
+    margin-top: -125px;
     width: auto;
     height: auto;
-    margin-left: 0px;
-    background-color: white;
+    background-color: green;
   }
 
   .grid-container > .corpo {
     grid-area: cn;
     background-color: lightgrey;
-    margin: 20px;
+    margin: 10px;
     padding: 0px;
-    margin-top: 0px;
+    margin-top: 120px;
   }
   .grid-container > .lateral {
     grid-area: lt;
@@ -152,7 +225,7 @@ body{
   }
 }
 
-@media (min-width: 600px) and (min-width:1200px){
+@media (min-width: 800px) and (max-width: 1200px){
   .grid-container {
     display: grid;
     margin: 10px;
@@ -194,7 +267,7 @@ body{
 
   .grid-container > .barra-menu {
     grid-area: bm;
-    margin-top: -70px;
+    margin-top: -100px;
     width: auto;
     height: auto;
     margin-left: 0px;
@@ -206,7 +279,7 @@ body{
     background-color: lightgrey;
     margin: 20px;
     padding: 0px;
-    margin-top: 0px;
+    margin-top: -100px;
   }
   .grid-container > .lateral {
     grid-area: lt;
@@ -240,8 +313,8 @@ body{
     grid-area: ba;
   }
   .grid-container > .banner > .img-ban {
-    margin-top: -19.5px;
-    margin-left: -10px;
+    margin-top: -45.5px;
+    margin-left: -20px;
   }
   .grid-container > .banner > .img-ban > img{
     width: 100%;
@@ -266,7 +339,7 @@ body{
 
   .grid-container > .barra-menu {
     grid-area: bm;
-    margin-top: -70px;
+    margin-top: -200px;
     width: auto;
     height: auto;
     margin-left: 0px;
@@ -278,7 +351,7 @@ body{
     background-color: lightgrey;
     margin: 20px;
     padding: 0px;
-    margin-top: 0px;
+    margin-top: -200px;
   }
   .grid-container > .lateral {
     grid-area: lt;

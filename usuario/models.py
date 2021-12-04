@@ -24,6 +24,8 @@ class UsrCad(models.Model):
 #dados educacionais
 class EduCad(models.Model):
     usuario = models.ForeignKey(UsrCad, on_delete=models.CASCADE)
+    gp = [('aluno','aluno')]
+    grupo = models.CharField(max_length=50, choices=gp)
     nvl = [('EF','fundamental'),('EM','Médio')]
     nivel = models.CharField(choices=nvl, max_length=255, verbose_name='nível pretendido')
     matric = models.CharField(max_length=4, verbose_name='matricula')

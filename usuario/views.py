@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView, CreateView, ListView, DetailView
 from django.urls import reverse
 from django.http import HttpResponse
 from django.template.loader import get_template
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate
 from hashlib import sha256
 
@@ -17,6 +17,7 @@ app_name = 'usuario'
 
 def inicio(request):
     return render(request,'usuario/index.html')
+
 #cadastro e login
 def cadastro(request):
     if request.session.get('usuario'):
@@ -28,7 +29,6 @@ def valida_cadastro(request):
     nome    = request.POST.get('nome')
     senha   = request.POST.get('senha')
     email   = request.POST.get('email')
-
     #usuario = UsrCad(usuario=usuario,email=email,senha=senha)
     #return HttpResponse(f"{usuario}, {senha}, {email}")
     usuario = UsrCad.objects.filter(email = email)

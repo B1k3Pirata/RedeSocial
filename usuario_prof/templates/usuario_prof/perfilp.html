@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block css %}
+<meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="{% static 'css/perfilp.css' %}">
 {% endblock %}
 
@@ -20,6 +21,11 @@
   <div class="card-turno">
     <p>{{trn}}</p>
   </div>
+</div>
+<div class="corpo-perfil">
+  {% block perfil-content %}
+
+  {% endblock %}
 </div>
 {% endif %}
 {% endblock %}
