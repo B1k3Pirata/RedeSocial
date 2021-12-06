@@ -71,7 +71,8 @@
     grid-template-areas:
     "aa aa aa "
     "an an an"
-    "nv nv at"
+    "nv nv nv"
+    "at at at"
   }
   .avatar > .aavatar {
     grid-area: aa;
@@ -129,7 +130,8 @@
     grid-template-areas:
     "aa aa aa "
     "an an an"
-    "nv nv at"
+    "nv nv nv"
+    "at at at"
   }
   .avatar > .aavatar {
     grid-area: aa;
@@ -197,7 +199,7 @@
     width: 75%;
     position: absolute;
     margin-top: 5.5px;
-    left: 7.5px;
+    left: 257.5px;
     border: double thick; #borda dupla
   }
   .avatar-nome{
@@ -256,7 +258,7 @@
     width: 75%;
     position: absolute;
     margin-top: -30px;
-    left: 167.5px;
+    left: 527.5px;
     border: double thick; #borda dupla
   }
   .avatar-nome{
@@ -299,12 +301,12 @@
     padding: 1.5px;
     background-color: skyblue;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
     grid-template-rows: auto;
     grid-template-areas:
-    "aa aa aa "
-    "an an an"
-    "nv nv at"
+    "aa aa aa aa"
+    "an an nv nv"
+    "at at at at"
   }
   .avatar > .aavatar {
     grid-area: aa;
@@ -315,7 +317,7 @@
     width: 75%;
     position: absolute;
     margin-top: -50px;
-    left: 207.5px;
+    left: 737.5px;
     border: double thick; #borda dupla
   }
   .avatar-nome{
@@ -373,13 +375,13 @@
     border-radius: 50%; #arredonda a imagem
     width: 75%;
     position: absolute;
-    margin-top: -40px;
-    left: 297.5px;
+    margin-top: -60px;
+    left: 717.5px;
     border: double thick; #borda dupla
   }
   .avatar-nome{
     grid-area: an;
-    background-color: yellow;
+    background-color: green;
   }
   .avatar-nome > p{
     font-family: 'ubuntu';
