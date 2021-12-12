@@ -1,0 +1,278 @@
+[
+    {
+        "disciplina;nivel;turno;docente": "lingua portuguesa;fundamental;noturno;audrea"
+    },
+    {
+        "disciplina;nivel;turno;docente": "lingua portuguesa;fundamental;noturno;jacirema"
+    },
+    {
+        "disciplina;nivel;turno;docente": "lingua portuguesa;fundamental;manha;nilberto"
+    },
+    {
+        "disciplina;nivel;turno;docente": "lingua portuguesa;fundamental;tarde;paula"
+    },
+    {
+        "disciplina;nivel;turno;docente": "lingua portuguesa;fundamental;manha;silvana merabet"
+    },
+    {
+        "disciplina;nivel;turno;docente": "lingua portuguesa;medio;;alessandra"
+    },
+    {
+        "disciplina;nivel;turno;docente": "lingua portuguesa;medio;noturno;augusto coelho"
+    },
+    {
+        "disciplina;nivel;turno;docente": "lingua portuguesa;medio;;jailson"
+    },
+    {
+        "disciplina;nivel;turno;docente": "lingua portuguesa;medio;tarde;neilce"
+    },
+    {
+        "disciplina;nivel;turno;docente": "lingua portuguesa;medio;tarde;rita"
+    },
+    {
+        "disciplina;nivel;turno;docente": "lingua portuguesa;medio;noite;rosilene"
+    },
+    {
+        "disciplina;nivel;turno;docente": "lingua portuguesa;medio;manha;socorro dantas"
+    },
+    {
+        "disciplina;nivel;turno;docente": "artes;fundamental;tarde;barbara"
+    },
+    {
+        "disciplina;nivel;turno;docente": "artes;fundamental;manha;dil"
+    },
+    {
+        "disciplina;nivel;turno;docente": "artes;fundamental;manha;rosana"
+    },
+    {
+        "disciplina;nivel;turno;docente": "artes;fundamental;noite;simone silva"
+    },
+    {
+        "disciplina;nivel;turno;docente": "artes;medio;tarde;carlos brito"
+    },
+    {
+        "disciplina;nivel;turno;docente": "artes;medio;manha;domicio"
+    },
+    {
+        "disciplina;nivel;turno;docente": "artes;medio;tarde;ilma dias"
+    },
+    {
+        "disciplina;nivel;turno;docente": "artes;medio;noite;luiz carlos"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ed.fisica;fundamental;tarde;andreza"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ed.fisica;fundamental;manha;gisele"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ed.fisica;fundamental;noite;sonia"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ed.fisica;medio;;daniele"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ed.fisica;medio;manha;gisele"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ed.fisica;medio;tarde;paulo andre"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ed.fisica;medio;noite;sonia"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ingles;fundamental;manha;carolina"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ingles;fundamental;noite;marcia"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ingles;fundamental;tarde;sandro"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ingles;fundamental;tarde;walcilea"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ingles;medio;manha;cynthia"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ingles;medio;manha;denise"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ingles;medio;tarde;kilvia"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ingles;medio;noite;marcia"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ingles;medio;tarde;waldely"
+    },
+    {
+        "disciplina;nivel;turno;docente": "matematica;fundamental;manha;bruno"
+    },
+    {
+        "disciplina;nivel;turno;docente": "matematica;fundamental;manha;fernanda"
+    },
+    {
+        "disciplina;nivel;turno;docente": "matematica;fundamental;tarde;marcelo"
+    },
+    {
+        "disciplina;nivel;turno;docente": "matematica;fundamental;tarde;neto"
+    },
+    {
+        "disciplina;nivel;turno;docente": "matematica;fundamental;;paulo ronaldo"
+    },
+    {
+        "disciplina;nivel;turno;docente": "matematica;medio;manha;carlos coelho"
+    },
+    {
+        "disciplina;nivel;turno;docente": "matematica;medio;noite;celso"
+    },
+    {
+        "disciplina;nivel;turno;docente": "matematica;medio;tarde;helda"
+    },
+    {
+        "disciplina;nivel;turno;docente": "matematica;medio;tarde;maurilo"
+    },
+    {
+        "disciplina;nivel;turno;docente": "matematica;medio;noite;rodrigo"
+    },
+    {
+        "disciplina;nivel;turno;docente": "geografia;fundamental;tarde;conceicao"
+    },
+    {
+        "disciplina;nivel;turno;docente": "geografia;fundamental;manha;eduardo"
+    },
+    {
+        "disciplina;nivel;turno;docente": "geografia;fundamental;noite;jorge luiz"
+    },
+    {
+        "disciplina;nivel;turno;docente": "geografia;fundamental;noite;ronny"
+    },
+    {
+        "disciplina;nivel;turno;docente": "geografia;medio;tarde;alex"
+    },
+    {
+        "disciplina;nivel;turno;docente": "geografia;medio;noite;ebenezer"
+    },
+    {
+        "disciplina;nivel;turno;docente": "geografia;medio;manha;maradei"
+    },
+    {
+        "disciplina;nivel;turno;docente": "geografia;medio;tarde;ricardo"
+    },
+    {
+        "disciplina;nivel;turno;docente": "geografia;medio;;viviana"
+    },
+    {
+        "disciplina;nivel;turno;docente": "historia;fundamental;;antonio jorge"
+    },
+    {
+        "disciplina;nivel;turno;docente": "historia;fundamental;manha;daryen"
+    },
+    {
+        "disciplina;nivel;turno;docente": "historia;fundamental;tarde;flavio"
+    },
+    {
+        "disciplina;nivel;turno;docente": "historia;medio;noite;aluisio"
+    },
+    {
+        "disciplina;nivel;turno;docente": "historia;medio;;cristina"
+    },
+    {
+        "disciplina;nivel;turno;docente": "historia;medio;tarde;marcio pinheiro"
+    },
+    {
+        "disciplina;nivel;turno;docente": "historia;medio;noite;silvana pinheiro"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ciencias;fundamental;noite;joao cunha"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ciencias;fundamental;manha;kleber"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ciencias;fundamental;tarde;maria do carmo"
+    },
+    {
+        "disciplina;nivel;turno;docente": "ciencias;fundamental;tarde;marina"
+    },
+    {
+        "disciplina;nivel;turno;docente": "fisica;medio;tarde;abel"
+    },
+    {
+        "disciplina;nivel;turno;docente": "fisica;medio;manha;karla"
+    },
+    {
+        "disciplina;nivel;turno;docente": "fisica;medio;;marcio jose"
+    },
+    {
+        "disciplina;nivel;turno;docente": "fisica;medio;noite;marinho"
+    },
+    {
+        "disciplina;nivel;turno;docente": "sociologia;medio;tarde;deise"
+    },
+    {
+        "disciplina;nivel;turno;docente": "sociologia;medio;manha;josilene"
+    },
+    {
+        "disciplina;nivel;turno;docente": "sociologia;medio;manha;regina"
+    },
+    {
+        "disciplina;nivel;turno;docente": "sociologia;medio;noite;reliane"
+    },
+    {
+        "disciplina;nivel;turno;docente": "sociologia;medio;tarde;reny"
+    },
+    {
+        "disciplina;nivel;turno;docente": "filosofia;medio;noite;luisiane"
+    },
+    {
+        "disciplina;nivel;turno;docente": "filosofia;medio;tarde;paulo pamplona"
+    },
+    {
+        "disciplina;nivel;turno;docente": "filosofia;medio;manha;paulo roberto"
+    },
+    {
+        "disciplina;nivel;turno;docente": "filosofia;medio;;samarone"
+    },
+    {
+        "disciplina;nivel;turno;docente": "biologia;medio;noite;davi"
+    },
+    {
+        "disciplina;nivel;turno;docente": "biologia;medio;noite;maria"
+    },
+    {
+        "disciplina;nivel;turno;docente": "biologia;medio;manha;roberta"
+    },
+    {
+        "disciplina;nivel;turno;docente": "biologia;medio;tarde;rosivaldo"
+    },
+    {
+        "disciplina;nivel;turno;docente": "quimica;medio;noite;arthur"
+    },
+    {
+        "disciplina;nivel;turno;docente": "quimica;medio;manha;cristiane"
+    },
+    {
+        "disciplina;nivel;turno;docente": "quimica;medio;manha;glaucia"
+    },
+    {
+        "disciplina;nivel;turno;docente": "quimica;medio;tarde;rosa"
+    },
+    {
+        "disciplina;nivel;turno;docente": "quimica;medio;tarde;sheila"
+    },
+    {
+        "disciplina;nivel;turno;docente": "espanhol;medio;noite;marie"
+    },
+    {
+        "disciplina;nivel;turno;docente": "espanhol;medio;tarde;nanci"
+    },
+    {
+        "disciplina;nivel;turno;docente": "espanhol;medio;noite;odinete"
+    },
+    {
+        "disciplina;nivel;turno;docente": "espanhol;medio;manha;teresa cristiana"
+    }
+]

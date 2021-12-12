@@ -6,8 +6,8 @@ app_name = 'agenda'
 
 urlpatterns = [
     path('inicioagenda/', views.InicioAgenda.as_view(),name='inicioagenda'),
-    path('ag1/', AgendaNvl.as_view(), name='agenda_nivel'),
-    path('ag2/', AgendaDsc.as_view(), name='agenda_disciplina'),
-    path('ag3/', AgendaPrf.as_view(), name='agenda_professor'),
+    path('slc/', views.nivel, name='cria_agendamento'),#para prepopular select
+    path('slc/', views.disc, name='cria_agendamento'),
+    path('ajax/load-funcoes', views.load_funcoes, name='ajax_load_funcoes'),#para prepopular select
     path('ok/', AgendaSucesso.as_view(), name='agenda_sucesso'),
 ]

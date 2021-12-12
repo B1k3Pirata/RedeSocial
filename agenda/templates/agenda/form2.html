@@ -1,0 +1,74 @@
+{% extends 'basePG/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block conteudo %}
+<div class="agendaC">
+  <div class="titulo">
+    <h2>{{titulo}}</h2>
+    <div class="imagem">
+      <!--<img class="usr_p" src="{% static 'img/hpardo.png' %}" alt="">-->
+    </div>
+  </div>
+  <div class="formu">
+    <form class="formulario" action="" name="Form" id="Form" method="POST" enctype='multipart/form-data' data-funcoes-url="/agenda/ajax/load-funcoes">
+      {% csrf_token %}
+      <div class="col-sm-8">
+        <label for="nivel" id="nivel">Nível</label>
+        <select class="form-control" name="nivel_id" id="nivel_id">
+          <option value="selecione">Selecione</option>
+          <option value="fundamental">Fundamental</option>
+          <option value="medio">Médio</option>
+        </select>
+      </div>
+      <div class="disc">
+        <label id="disciplina">Disciplina</label>
+        <select class="form-control" name="disciplina_id" id="disciplina_id">
+          <option value="selecione">Selecione</option>
+          {% for disc in disc %}
+            <option data-disc="{{disc.id}}" value="{{disc.id}}">{{disc.nome}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="prof">
+        <label id="prof">Professor</label>
+        <select class="form-control" name="prof_id" id="prof_id">
+          <option value="selecione">Selecione</option>
+          {% for prof in prof %}
+          <option value="{{prof.id}}">{{prof.nome}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="save btn btn-primary">{{botaoC}}</button>
+      <button type="reset" class="save btn btn-default">{{botaoB}}</button>
+    </form>
+    <!-- injetando javascript -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $("#nivel_id").change(function(){
+        const url = $('#form').attr("data-funcoes-url");
+        nivelID = $(this).val();
+        $.ajax({
+          url : url,
+          data: {'nivel_id': nivelID},
+          success: function(data){
+            $("#disciplina_id").html(data);
+          }
+        });
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3/js/bootstrap.min.js"></script>
+  </div>
+</div>
+{% endblock %}

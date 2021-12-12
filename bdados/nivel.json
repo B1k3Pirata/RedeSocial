@@ -1,0 +1,41 @@
+[
+    {
+        "fundamental;medio": "artes;artes"
+    },
+    {
+        "fundamental;medio": "ed.fisica;biologia"
+    },
+    {
+        "fundamental;medio": "ciencias;ed.fisica"
+    },
+    {
+        "fundamental;medio": "geografia;espanhol"
+    },
+    {
+        "fundamental;medio": "historia;filosofia"
+    },
+    {
+        "fundamental;medio": "ingles;fisica"
+    },
+    {
+        "fundamental;medio": "lingua portuguesa;geografia"
+    },
+    {
+        "fundamental;medio": "matematica;historia"
+    },
+    {
+        "fundamental;medio": "espanhol;ingles"
+    },
+    {
+        "fundamental;medio": ";lingua portuguesa"
+    },
+    {
+        "fundamental;medio": ";matematica"
+    },
+    {
+        "fundamental;medio": ";quimica"
+    },
+    {
+        "fundamental;medio": ";sociologia"
+    }
+]

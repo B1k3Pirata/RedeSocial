@@ -1,0 +1,47 @@
+{% extends 'basePG/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<meta charset="utf-8">
+{% endblock %}
+
+{% block conteudo %}
+<div class="agendaC">
+  <div class="titulo">
+    <h2>{{titulo}}</h2>
+  </div>
+  <div class="formu">
+    <form class="form" action="" name="form" id="form" method="post" enctype='multipart/form-data'data-funcoes-url="/agenda/ajax/load-funcoes">
+      {% csrf_token %}
+      <div class="col-sm-8">
+        <label for="nivel" id="nivel">Nível</label>
+        <select class="form-control" name="nivelID" id="nivelID">
+          {% for nivel in nivel %}
+          <option value="{{ nivel.id }}">{{ nivel.opcao }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-sm-8">
+        <label for="disciplina" id="disciplina">Disciplina</label>
+        <select class="form-control" name="discID" id="discID">
+          {% for disciplina in disciplina %}
+          <option data-nivel="{{ disciplina.idNivel}}" value="{{ disciplina.id }}">{{ disciplina.nome }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-sm-8">
+        <label for="professor" id="professor">Professor</label>
+        <select class="form-control" name="profID" id="profID">
+          {% for disciplina in disciplina %}
+          <option data-disciplina="{{ professor.idDisciplina}}" value="{{ professor.id }}">{{ professor.nome }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </form>
+    <script type="text/javascript">
+      
+    </script>
+  </div>
+</div>
+{% endblock %}

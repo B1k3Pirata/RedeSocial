@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-0h5rvoz-zw10zo@+&e)qf7gcws5-(thp9p6-3^_-h%yfxe9g+j
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost','127.0.0.1','192.168.0.143','177.74.63.61'
+    'localhost','127.0.0.1','192.168.0.111','177.74.63.61'
 ]
 
 
@@ -176,3 +176,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 #numeros decimais
 DECIMAL_SEPARATOR = ','
 USE_THOUSAND_SEPARATOR = True
+#importacao exportação
+IMPORT_EXPORT_USE_TRANSACTIONS = True
