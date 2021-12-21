@@ -1,0 +1,102 @@
+[
+    {
+        "disc": "artes",
+        "id": 1,
+        "nivel_id": 2
+    },
+    {
+        "disc": "ed.fisica",
+        "id": 2,
+        "nivel_id": 2
+    },
+    {
+        "disc": "ciencias",
+        "id": 3,
+        "nivel_id": 2
+    },
+    {
+        "disc": "geografia",
+        "id": 4,
+        "nivel_id": 2
+    },
+    {
+        "disc": "historia",
+        "id": 5,
+        "nivel_id": 2
+    },
+    {
+        "disc": "ingles",
+        "id": 6,
+        "nivel_id": 2
+    },
+    {
+        "disc": "l.portuguesa",
+        "id": 7,
+        "nivel_id": 2
+    },
+    {
+        "disc": "matematica",
+        "id": 8,
+        "nivel_id": 2
+    },
+    {
+        "disc": "artes",
+        "id": 9,
+        "nivel_id": 1
+    },
+    {
+        "disc": "biologia",
+        "id": 10,
+        "nivel_id": 1
+    },
+    {
+        "disc": "ed.fisica",
+        "id": 11,
+        "nivel_id": 1
+    },
+    {
+        "disc": "espanhol",
+        "id": 12,
+        "nivel_id": 1
+    },
+    {
+        "disc": "filosofia",
+        "id": 13,
+        "nivel_id": 1
+    },
+    {
+        "disc": "geografia",
+        "id": 14,
+        "nivel_id": 1
+    },
+    {
+        "disc": "historia",
+        "id": 15,
+        "nivel_id": 1
+    },
+    {
+        "disc": "ingles",
+        "id": 16,
+        "nivel_id": 1
+    },
+    {
+        "disc": "l.portuguesa",
+        "id": 17,
+        "nivel_id": 1
+    },
+    {
+        "disc": "matematica",
+        "id": 18,
+        "nivel_id": 1
+    },
+    {
+        "disc": "quimica",
+        "id": 19,
+        "nivel_id": 1
+    },
+    {
+        "disc": "sociologia",
+        "id": 20,
+        "nivel_id": 1
+    }
+]

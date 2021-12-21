@@ -68,14 +68,14 @@
 </div>
 <!-- injetando javascript -->
 <script type="text/javascript">
-  $("#nivel_id").change(function(){
+  $("#nivelID").change(function(){
     const url = $('#form').attr("data-funcoes-url");
     nivelID = $(this).val();
     $.ajax({
       url : url,
-      data: {'nivel_id': nivelID},
+      data: {'nivelID': nivelID},
       success: function(data){
-        $("#disciplina_id").html(data);
+        $("#profID").html(data);
       }
     });
     }

@@ -11,36 +11,53 @@
   <div class="titulo">
     <h2>{{titulo}}</h2>
   </div>
-  <div class="formu">
-    <form class="form" action="" name="form" id="form" method="post" enctype='multipart/form-data'data-funcoes-url="/agenda/ajax/load-funcoes">
+  <div class="form-group">
+    <form class="form-horizontal" action="" name="Form" id="Form" method="post" enctype='multipart/form-data' data-funcoes-url="/agenda/ajax/load_funcoes/" data-grupos-url="/agenda/load_grupos/">
       {% csrf_token %}
+      <label for="nivel" id="nivel">Nível</label>
       <div class="col-sm-8">
-        <label for="nivel" id="nivel">Nível</label>
-        <select class="form-control" name="nivelID" id="nivelID">
-          {% for nivel in nivel %}
-          <option value="{{ nivel.id }}">{{ nivel.opcao }}</option>
+        <select class="form-control" required name="nivelID" id="nivelID">
+          <option value="" selected>Selecione</option>
+          {% for n in nivel %}
+          <option value="{{ n.id }}">{{ n.opcaof }}</option>
           {% endfor %}
         </select>
       </div>
       <div class="col-sm-8">
         <label for="disciplina" id="disciplina">Disciplina</label>
-        <select class="form-control" name="discID" id="discID">
-          {% for disciplina in disciplina %}
-          <option data-nivel="{{ disciplina.idNivel}}" value="{{ disciplina.id }}">{{ disciplina.nome }}</option>
+        <select class="form-control" required name="discID" id="discID">
+          <option value="" selected>Selecione</option>
+          {% for d in disciplina %}
+          <option data-nivel="{{ d.id}}" value="{{ d.id }}">{{ d.disc }}</option>
           {% endfor %}
         </select>
       </div>
       <div class="col-sm-8">
         <label for="professor" id="professor">Professor</label>
         <select class="form-control" name="profID" id="profID">
-          {% for disciplina in disciplina %}
-          <option data-disciplina="{{ professor.idDisciplina}}" value="{{ professor.id }}">{{ professor.nome }}</option>
+          <option value="" selected>Selecione</option>
+          {% for p in professor %}
+          <option data-disciplina="{{ p.id }}" value="{{ p.id }}">{{ p.docente }}</option>
           {% endfor %}
         </select>
       </div>
     </form>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/ums/popper.min.js"></script>
     <script type="text/javascript">
-      
+      $("#nivelID").change(function(){
+        const url = $('#Form').attr("data-funcoes-url");
+        nNivelID = $(this).val();
+        $.ajax({
+          url : url,
+          data: {'nivelID': nNivelID},
+          success: function(data){
+            $("#discID").html(data);
+          }
+        });
+        }
+      );
     </script>
   </div>
 </div>

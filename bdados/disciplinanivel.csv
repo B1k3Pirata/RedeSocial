@@ -1,0 +1,93 @@
+docente;disciplina;nivel;turno;nivel_id
+audrea;lingua portuguesa;fundamental;noturno;2
+jacirema;lingua portuguesa;fundamental;noturno;2
+nilberto;lingua portuguesa;fundamental;manha;2
+paula;lingua portuguesa;fundamental;tarde;2
+silvana merabet;lingua portuguesa;fundamental;manha;2
+alessandra;lingua portuguesa;medio;;1
+augusto coelho;lingua portuguesa;medio;noturno;1
+jailson;lingua portuguesa;medio;;1
+neilce;lingua portuguesa;medio;tarde;1
+rita;lingua portuguesa;medio;tarde;1
+rosilene;lingua portuguesa;medio;noite;1
+socorro dantas;lingua portuguesa;medio;manha;1
+barbara;artes;fundamental;tarde;2
+dil;artes;fundamental;manha;2
+rosana;artes;fundamental;manha;2
+simone silva;artes;fundamental;noite;2
+carlos brito;artes;medio;tarde;1
+domicio;artes;medio;manha;1
+ilma dias;artes;medio;tarde;1
+luiz carlos;artes;medio;noite;1
+andreza;ed.fisica;fundamental;tarde;2
+gisele;ed.fisica;fundamental;manha;2
+sonia;ed.fisica;fundamental;noite;2
+daniele;ed.fisica;medio;;1
+gisele;ed.fisica;medio;manha;1
+paulo andre;ed.fisica;medio;tarde;1
+sonia;ed.fisica;medio;noite;1
+carolina;ingles;fundamental;manha;2
+marcia;ingles;fundamental;noite;2
+sandro;ingles;fundamental;tarde;2
+walcilea;ingles;fundamental;tarde;2
+cynthia;ingles;medio;manha;1
+denise;ingles;medio;manha;1
+kilvia;ingles;medio;tarde;1
+marcia;ingles;medio;noite;1
+waldely;ingles;medio;tarde;1
+bruno;matematica;fundamental;manha;2
+fernanda;matematica;fundamental;manha;2
+marcelo;matematica;fundamental;tarde;2
+neto;matematica;fundamental;tarde;2
+paulo ronaldo;matematica;fundamental;;2
+carlos coelho;matematica;medio;manha;1
+celso;matematica;medio;noite;1
+helda;matematica;medio;tarde;1
+maurilo;matematica;medio;tarde;1
+rodrigo;matematica;medio;noite;1
+conceicao;geografia;fundamental;tarde;2
+eduardo;geografia;fundamental;manha;2
+jorge luiz;geografia;fundamental;noite;2
+ronny;geografia;fundamental;noite;2
+alex;geografia;medio;tarde;1
+ebenezer;geografia;medio;noite;1
+maradei;geografia;medio;manha;1
+ricardo;geografia;medio;tarde;1
+viviana;geografia;medio;;1
+antonio jorge;historia;fundamental;;2
+daryen;historia;fundamental;manha;2
+flavio;historia;fundamental;tarde;2
+aluisio;historia;medio;noite;1
+cristina;historia;medio;;1
+marcio pinheiro;historia;medio;tarde;1
+silvana pinheiro;historia;medio;noite;1
+joao cunha;ciencias;fundamental;noite;2
+kleber;ciencias;fundamental;manha;2
+maria do carmo;ciencias;fundamental;tarde;2
+marina;ciencias;fundamental;tarde;2
+abel;fisica;medio;tarde;1
+karla;fisica;medio;manha;1
+marcio jose;fisica;medio;;1
+marinho;fisica;medio;noite;1
+deise;sociologia;medio;tarde;1
+josilene;sociologia;medio;manha;1
+regina;sociologia;medio;manha;1
+reliane;sociologia;medio;noite;1
+reny;sociologia;medio;tarde;1
+luisiane;filosofia;medio;noite;1
+paulo pamplona;filosofia;medio;tarde;1
+paulo roberto;filosofia;medio;manha;1
+samarone;filosofia;medio;;1
+davi;biologia;medio;noite;1
+maria;biologia;medio;noite;1
+roberta;biologia;medio;manha;1
+rosivaldo;biologia;medio;tarde;1
+arthur;quimica;medio;noite;1
+cristiane;quimica;medio;manha;1
+glaucia;quimica;medio;manha;1
+rosa;quimica;medio;tarde;1
+sheila;quimica;medio;tarde;1
+marie;espanhol;medio;noite;1
+nanci;espanhol;medio;tarde;1
+odinete;espanhol;medio;noite;1
+teresa cristiana;espanhol;medio;manha;1

@@ -1,0 +1,114 @@
+"""def inserenivel():
+    df0 = pd.read_excel("./bdados/disciplina_professores.xlsx", sheet_name='nivel')
+    dfnf = df0.nivel[0]
+    dfnm = df0.nivel[1]
+    #inserindo no banco de dados
+    con = sql.connect('db.sqlite3')
+    c = con.cursor()
+    c.execute("INSERT INTO agenda_nivel (opcaof,opcaom) VALUES (?,?)",(dfnf,dfnm))
+    con.commit()
+    c.close()
+inserenivel()
+def inseredisciplina():
+    df1 = pd.read_excel("./bdados/disciplina_professores.xlsx", sheet_name='disc_nivel')
+    dfdf = df1.medio
+    dfdm = df1.fundamental
+    #inserindo no banco de dados
+    con = sql.connect('db.sqlite3')
+    c = con.cursor()
+    c.execute("INSERT INTO agenda_disciplinas (dF,dM) VALUES (?,?)",(dfdf,dfdm))
+    con.commit()
+    c.close()
+inseredisciplina()"""
+
+"""class BancoIniciar():
+def __init__(self,pnivel,pdiscf,pdiscm,pprof):
+    pnivel=pnivel
+    pdiscf=pdiscf
+    pdiscm=pdiscm
+    pprof=pprof
+
+def preencheBanco():
+    df0 = pd.read_excel("./bdados/disciplina_professores.xlsx", sheet_name='nivel')
+    df01 = pd.read_excel("./bdados/disciplina_professores.xlsx", sheet_name='disc_nivel')
+    df1 = pd.read_excel("./bdados/disciplina_professores.xlsx", sheet_name='prof_disc_nivel_turno')
+    dfn = df0.nivel
+    dfd = df01.fundamental
+    dfd2 = df01.medio
+    dfp = df1.docente
+
+    #inserindo no banco de dados
+    con = sql.connect('db.sqlite3')
+    c = con.cursor()
+    c.execute("INSERT INTO agenda_nivel (opcao) VALUES (?)",dfn)
+    con.commit()
+preencheBanco()
+c.close()
+con.close()"""
+
+
+
+
+"""def pega_nivel(request):
+    df = pd.read_excel("./bdados/disciplina_professores.xlsx", sheet_name='Planilha1')
+    dfn = df.nivel
+    nivel = {'dfn':dfn}
+    return render(request, 'agenda/form2.html', nivel)
+
+def pega_disciplina(request):
+    if nivel == 'Fundamental':
+        df = pd.read_excel("./bdados/disciplina_professores.xlsx", sheet_name='Planilha1')
+        dfd = df.query('nivel=="fundamental"')
+        disc = {'dfd':dfd}
+        return render(request, 'agenda/form2.html', disc)
+    else:
+        df = pd.read_excel("./bdados/disciplina_professores.xlsx", sheet_name='Planilha1')
+        dfn = df.nivel
+        nivel = {'dfn':dfn}
+        return render(request, 'agenda/form2.html', nivel)
+    return render(request, 'agenda/form2.html', disc)
+"""
+"""class AgendaNvl(CreateView):
+    model = Nivel
+    fields = '__all__'
+    template_name = 'agenda/form.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = 'Agendamento'
+        #context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
+        context['botaoC'] = 'Avançar'
+        context['botaoB'] = 'Limpar'
+        context['botaoA'] = 'Cancelar'
+        return context
+    success_url = '/agenda/ag2/'
+
+"""
+'''class AgendaDsc(CreateView):
+    model = Disciplinas
+    fields = '__all__'
+    template_name = 'agenda/form2.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = 'Agendamento de Disciplina'
+        #context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
+        context['botaoC'] = 'Avançar'
+        context['botaoB'] = 'Limpar'
+        context['botaoA'] = 'Cancelar'
+        return context
+    success_url = '/agenda/ag3/'
+
+class AgendaPrf(CreateView):
+    model = Professor
+    fields = '__all__'
+    template_name = 'agenda/form.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = 'Agendamento com Professor'
+        #context['texto1'] = 'Preencha seus dados completos, para melhor configuração do seu perfil'
+        context['botaoC'] = 'Avançar'
+        context['botaoB'] = 'Limpar'
+        context['botaoA'] = 'Cancelar'
+        return context
+    success_url = '/agenda/ok/'
+'''
